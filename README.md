@@ -1,66 +1,136 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🛍️ Multi-Vendor Ecommerce Platform
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A **fully-featured multi-vendor ecommerce web application** built using **Laravel**, **Vue 3**, **Inertia.js**, and a rich set of modern frontend & backend tools.
 
-## About Laravel
+This project is a showcase of my accumulated experience as a full-stack developer, featuring modular architecture, real-time interactivity, custom user roles, and support for both traditional checkout and digital wallet funding.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 👥 User Roles
 
-## Learning Laravel
+- **Admin**:
+  - Manage Categories and Subcategories
+  - Create, Update, Delete Tags
+  - View financial statistics
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Vendor**:
+  - Add products for sale
+  - Manage own listings
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Customer**:
+  - Browse and purchase products
+  - Pay via internal balance or directly via Stripe (PayPal coming soon)
+  - Fund balance via Stripe (PayPal and crypto to be added)
+  - Add items to cart and complete checkout
+  - Create posts and mention products or users
+  - Comment and like posts
+  - Receive real-time notifications (likes, comments, mentions)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🛠️ Technologies Used
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Backend (Laravel)
 
-### Premium Partners
+- **Modular architecture** using [`nwidart/laravel-modules`](https://github.com/nWidart/laravel-modules)  
+  Modules: `Admin`, `Vendor`, `Customer`, `Finance`
+- **Service & Repository Pattern** for business logic separation
+- **Action Pattern** for complex operations
+- **Authentication & Authorization** using Laravel policies and guards
+- **Laravel Storage (local)** for file uploads (S3 planned)
+- **Session & Cache** planned to use **Redis**
+- **Real-time features** powered by **Laravel Reverb**
+- **PDF Generation** using [`barryvdh/laravel-dompdf`](https://github.com/barryvdh/laravel-dompdf)
+- **Email Notifications** using **Mailtrap** (production-ready setup planned)
+- **Precognitive validation** with Laravel Precognition
+- **Auction system** (coming soon): Bid-based product sales scheduled by date/time, using wallet balance.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Frontend (Vue 3 + Inertia.js)
 
-## Contributing
+- **Component libraries**: 
+  - [`shadcn-vue`](https://github.com/shadcn-ui/ui)  
+  - [`PrimeVue`](https://primevue.org/)
+- **State management**: [`Pinia`](https://pinia.vuejs.org/)
+- **Routing**:  
+  - [`Ziggy`](https://github.com/tighten/ziggy) for Laravel route access in JS  
+  - [`Wayfinder`](https://github.com/dillionmegida/wayfinder) for internal navigation
+- **Validation**:  
+  - [`Zod`](https://github.com/colinhacks/zod)  
+  - Laravel Precognition for frontend-backend sync
+- **Rich post interactions**: Mentions, likes, comments, real-time updates
+- **Cart system** with live updates and multi-payment support
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 📦 Planned Features
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- PayPal integration for funding balance and checkout
+- Crypto wallet funding (e.g., USDT)
+- S3-based file storage
+- Redis for session and caching
+- Auction system for time-based bidding
+- Admin dashboard with analytics
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 📁 Folder Structure
 
-## License
+- `Modules/Admin`, `Modules/Vendor`, `Modules/Customer`, `Modules/Finance`
+- `Actions/` - encapsulated business logic
+- `Repositories/` - data access abstraction
+- `Http/Controllers`, `Requests`, `Resources`, `Policies` – all organized per module
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## 🧪 Demo Data (coming soon)
+
+Seeders will be provided for:
+- Products
+- Tags / Categories / Subcategories
+- Sample users (Admin, Vendor, Customer)
+
+---
+
+## 🧾 Billing & Invoices
+
+- Customers can download invoice PDFs after each transaction.
+- Transaction summaries are also sent via email.
+
+---
+
+## 📬 Notifications
+
+Real-time notifications (via Laravel Reverb) for:
+- New comments on posts
+- Likes
+- Mentions
+
+---
+
+## 📌 Project Goals
+
+This project was created as a **learning showcase** to demonstrate real-world application of:
+
+- Modular Laravel development
+- Laravel + Inertia.js architecture
+- Multi-role permissions and functionality
+- Clean backend separation (Service, Repository, Actions)
+- Advanced Vue.js patterns with state management and validation
+
+---
+
+## 📧 Contact
+
+- 👤 **Baraa Kamel Elsibakhi**
+- 📍 Gaza Strip, Palestine
+- 📧 baraaelsibakhi@gmail.com
+- 🔗 [GitHub](https://github.com/elsibakhi) | [LinkedIn](https://linkedin.com/in/baraa-elsibakhi)
+
+---
+
+## 🏷️ License
+
+This project is open-source and available under the [MIT license](LICENSE).
+
