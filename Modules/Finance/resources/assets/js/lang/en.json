@@ -1,0 +1,41 @@
+{
+
+    
+        "purchase": {
+          "select_payment_method": "Select Payment Method",
+          "from_wallet": "From Wallet",
+          "direct_payment": "Direct Payment",
+          "choose_provider": "Choose Provider",
+          "crypto_usdt": "Crypto (USDT)",
+          "quantity": "Quantity",
+          "total_price": "Total Price",
+          "balance": "Balance",
+          "buy_from_balance": "Buy from Balance",
+          "pay_now": "Pay Now",
+          "from_balance": "Purchasing from Balance",
+          "with": "Paying with",
+          "your_balance_equal": "Your balance before is : {balance}",
+          "cancel": "Cancel",
+          "your_balance_now": "Your balance now is : {balance}"
+        },
+      
+        "invoice": {
+          "title": "Invoice",
+          "seller": "Seller",
+          "buyer": "Buyer",
+          "item": "Item",
+          "quantity": "Quantity",
+          "unit_price": "Unit Price",
+          "total": "Total",
+          "subtotal": "Subtotal",
+          "discount": "Discount",
+          "totalAfterDiscount": "Total After Discount",
+          "back": "Back",
+          "download": "Download",
+          "thank_you": "Thank you for your purchase!"
+        }
+      
+      
+ 
+}
+

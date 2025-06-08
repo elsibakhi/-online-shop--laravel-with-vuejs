@@ -1,0 +1,30 @@
+{
+
+    "View All Categories":"View All Categories",
+    "Categories":"Categories",
+    "Sub Categories":"Sub Categories",
+    "View All SubCategories":"View All SubCategories",
+    "Please enter the sub category you want to add.":"Please enter the sub category you want to add.",
+    "Please select a category.":"Please select a category.",
+    "Please enter the category you want to add.":"Please enter the category you want to add.",
+    "Please enter the tag you want to add.":"Please enter the tag you want to add.",
+    "The tag must be a text.":"The tag must be a text.",
+    "Please enter at least one tag.":"Please enter at least one tag.",
+    "tags-number-range":"The number of tags must be between {min} and {max}.",
+    "View All Tags":"View All Tags",
+    "Tags":"Tags",
+    "Category":"Category",
+    "Books & Stationery":"Books & Stationery",
+    "Open menu'":"Open menu'",
+    "Actions":"Actions",
+    "Edit":"Edit",
+    "Delete":"Delete",
+    "Name":"Name",
+    "Sub Category":"Sub Category",
+    "Mobile Phones":"Mobile Phones",
+    "Select a category for this sub category":"Select a category for this sub category",
+    "Tag":"Tag",
+    "Enter a Tag":"Enter a Tag"
+ 
+}
+

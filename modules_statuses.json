@@ -1,0 +1,6 @@
+{
+    "Admin": true,
+    "Vendor": true,
+    "Customer": true,
+    "Finance": true
+}

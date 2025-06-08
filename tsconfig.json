@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "jsx": "preserve",
+        "strict": true,
+        "isolatedModules": true,
+        "target": "ESNext",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "noEmit": true,
+        "skipLibCheck": true,
+        "paths": {
+            "@/*": ["./resources/js/*"],
+            "@admin/*": ["./Modules/Admin/resources/assets/js/*"],
+            "@vendor/*": ["./Modules/Vendor/resources/assets/*"],
+            "@customer/*": ["./Modules/Customer/resources/assets/*"],
+            "ziggy-js": ["./vendor/tightenco/ziggy"]
+        }
+    },
+    "include": [
+        "resources/js/**/*.ts",
+         "resources/js/**/*.vue",
+           "Modules/*/resources/assets/js/**/*.ts",
+            "Modules/*/resources/assets/js/**/*.vue"
+]
+}
