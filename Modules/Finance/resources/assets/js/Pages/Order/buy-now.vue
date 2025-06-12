@@ -5,6 +5,7 @@ import  RadioButton  from 'primevue/radiobutton'
 import  InputNumber  from 'primevue/inputnumber'
 import Button from 'primevue/button';
 import { Card, CardContent,CardHeader } from '@/components/ui/card'
+import ShadcnButton from '@/components/ui/button/Button.vue'
 import Tabs from 'primevue/tabs';
 import TabList from 'primevue/tablist';
 import Tab from 'primevue/tab';
@@ -16,7 +17,6 @@ import { buyNowFormBalance, buyNowFromStripeCheckoutPage, buyNowFromStripeChecko
 import Divider from 'primevue/divider';
   import Toaster from '@/components/ui/toast/Toaster.vue'
 import { useToast } from '@/components/ui/toast/use-toast'
-import ShadcnButton from '@/components/ui/button/Button.vue'
 import { Undo2 } from 'lucide-vue-next';
 import { useConfirmStore } from '@/Stores/confirm';
 import Confirm from '@/components/actions/Confirm.vue';
@@ -38,7 +38,7 @@ const directMethod = ref('paypal') // paypal, stripe, crypto
 
 
 const unitPrice = props.item.data.price
-const userBalance = page.props.auth.user?.balance
+const userBalance = page.props.auth.user?.balance_with_overhead
 const form = useForm({
           item_id : props.item.data.id,
           quantity:1

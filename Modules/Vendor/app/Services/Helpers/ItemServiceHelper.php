@@ -19,10 +19,10 @@ trait ItemServiceHelper
 
         $modelRepo = $this->getPriceableRepository($request->input('payment_type'));
 
-        $data = $this->getPriceableData($modelRepo, $request);
+      
 
         // Create the instance
-        return $modelRepo->create($data);
+        return $modelRepo->create($request->validated());
 
     }
 
@@ -176,12 +176,5 @@ trait ItemServiceHelper
 
     }
 
-    public function getPriceableData(object $modelRepository, ItemRequest $request): array
-    {
-        // Instantiate model to get its fillable fields
-        $fields = $modelRepository->getFields();
-
-        // Collect only required data
-        return $request->only($fields);
-    }
+   
 }

@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('auctions', function (Blueprint $table): void {
+        Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('start');
-            $table->timestamp('end');
-            $table->enum('status', ['pending', 'started', 'done', 'fails', 'postponed'])->default('pending');
-            $table->float('initial_price');
-            $table->float('current_price');
+          
             $table->timestamps();
         });
     }
@@ -27,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('auctions');
+        Schema::dropIfExists('locations');
     }
 };

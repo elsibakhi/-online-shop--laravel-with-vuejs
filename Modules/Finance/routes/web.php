@@ -2,6 +2,7 @@
 
 use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
 use Illuminate\Support\Facades\Route;
+use Modules\Finance\Http\Controllers\BidController;
 use Modules\Finance\Http\Controllers\FinanceController;
 use Modules\Finance\Http\Controllers\InvoiceController;
 use Modules\Finance\Http\Controllers\OrderController;
@@ -10,6 +11,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('balance', [OrderController::class, 'getBalance'])->name('finance.balance');
     Route::resource('finances', FinanceController::class)->names('finance');
+
+
+    //bids 
+    Route::get('auction/{auction}/bid', [BidController::class, 'show'])->name('auction.bid.show');
+    Route::post('auction/{auction}/bid', [BidController::class, 'bid'])->name('auction.bid.store');
 
     // buy now page
     Route::get('order/buy-now/{item}', [OrderController::class, 'buyNow'])->name('order.buy-now');

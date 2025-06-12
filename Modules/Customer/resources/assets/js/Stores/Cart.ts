@@ -33,7 +33,7 @@ interface CartState {
 
 export const useCartStore = defineStore('cart', () => {
   const page =usePage();
-  const userBalance = computed(() => page.props.auth.user.balance );
+  const userBalance = computed(() => page.props.auth.user?.balance_with_overhead );
   
   const items = ref<CartItem[]>([]);
   const cartVisibility = ref<boolean>(false);

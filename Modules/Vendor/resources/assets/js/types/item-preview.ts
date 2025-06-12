@@ -9,9 +9,10 @@ export interface Item {
       price?: number;
       discount?: number;
       initial_price?: number;
-      date?: string;
-      start_time?: string;
-      end_time?: string;
+     
+      user_start?: string;
+      user_end?: string;
+      is_active_now?: boolean;
       isBlackFridaySupported?: boolean;
     };
     extensions: { id: number; path: string }[];

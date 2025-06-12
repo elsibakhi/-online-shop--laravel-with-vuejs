@@ -22,6 +22,7 @@ class BuyFromBalanceAction
 
             $user = User::where('id', auth()->id())->lockForUpdate()->firstOrFail();
             $amount = 0;
+          
             $items = [];
             foreach ($data['items'] as $itemData) {
                 $data['item_id'] = $itemData['id'];

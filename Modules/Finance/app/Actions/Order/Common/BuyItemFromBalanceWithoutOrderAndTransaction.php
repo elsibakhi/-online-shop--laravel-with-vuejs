@@ -28,7 +28,7 @@ trait BuyItemFromBalanceWithoutOrderAndTransaction
         $total_price = $item->priceable->price * $data['quantity'];
         $total_price_after_discount = $total_price - ($total_price * $discount);
 
-        if ($user->balance >= $total_price_after_discount) {
+        if ($user->balance_with_overhead >= $total_price_after_discount) {
 
             $item->decrement('remaining_quantity', $data['quantity']);
 

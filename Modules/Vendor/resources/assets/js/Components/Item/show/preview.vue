@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/drawer'
 import { VisStackedBar, VisXYContainer } from '@unovis/vue'
 import { useItemStore } from '@vendor/js/Stores/Item'
-import { Boxes, Calendar, ChartCandlestick, ClockArrowDown, ClockArrowUp, Hash, HashIcon, Info, Minus, Network, Plus, Shapes, Tags } from 'lucide-vue-next'
+import { AlarmClockCheck, Boxes, Calendar, CalendarDays, ChartCandlestick, ClockArrowDown, ClockArrowUp, Hash, HashIcon, Info, Minus, Network, Plus, Shapes, Tags } from 'lucide-vue-next'
 import { computed, ref, watch } from 'vue'
 import { Badge } from '@/components/ui/badge'
 import { ShoppingCart } from 'lucide-vue-next'
@@ -20,9 +20,11 @@ import AddToCartButton from '@customer/js/components/Cart/addToCartButton.vue'
 import defaultImage from "@vendor/images/items/default/item.png"
 import { Link, usePage } from '@inertiajs/vue3'
 
-import { now, parseTime,Time } from '@internationalized/date'
+import { CalendarDate, now, parseTime,Time,parseDateTime,parseDate,  } from '@internationalized/date'
 import { Item } from '@vendor/js/types/item-preview'
 import { buyNow } from '@/actions/Modules/Finance/Http/Controllers/OrderController'
+import { show as showBid } from '@/actions/Modules/Finance/Http/Controllers/BidController'
+import { show } from '@/routes/admin'
 
 const selectedImage = ref('');
 const page = usePage();
@@ -49,26 +51,8 @@ const isThisUserisTheOwnerOfItem = computed(()=>{
 
 
 
-const isAuctionInProgressNow = computed(() => {
-  if (item.value.priceable_type === 'auction') {
-    const auctionDate = new Date(item.value.priceable.date);
-    const today = new Date();
 
-    if (today.toLocaleDateString() == auctionDate.toLocaleDateString()) {
-      const current = now(); // this gives ISO calendar time
-      const currentTime = new Time(current.hour, current.minute, current.second, current.millisecond);
 
-      const startTime = parseTime(item.value.priceable.start_time);
-      const endTime = parseTime(item.value.priceable.end_time);
-
-      return (
-        currentTime.compare(startTime) >= 0 &&
-        currentTime.compare(endTime) <= 0
-      );
-    }
-  }
-  return false;
-});
 
 
 
@@ -189,12 +173,17 @@ const selectImage = (path:string):void => {
           <div ><Network class="inline" :size="16"  /> {{$t('Sub Category')}}:</div><div>{{ item.sub_category.category.name }}</div>
           <div ><Hash class="inline" :size="16"  /> {{$t('Quantity')}}:</div><div>{{ item.remaining_quantity }} {{ $t('from') }} {{ item.quantity }}</div>
         </div>
+        <div v-if="item.priceable_type=='auction'" class="grid grid-cols-2 gap-1 mt-4 text-sm">
+          
+          <div ><ClockArrowUp class="inline" :size="16"  /> {{$t('Start In')}}:</div><div>{{(new Date(item.priceable.user_start)).toLocaleString() }}</div>
+          <div ><ClockArrowDown class="inline" :size="16"  /> {{$t('End In')}}:</div><div>{{  (new Date(item.priceable.user_end)).toLocaleString()  }} </div>
+        </div>
         
         </div>
       </div>
 
       <!-- Buttons -->
-      <div v-if="!isThisUserisTheOwnerOfItem" class="flex gap-4 pt-4 ">
+      <div v-if="!isThisUserisTheOwnerOfItem" class="w-full ">
 
         <template v-if="item.priceable_type=='normal'">
             <AddToCartButton :itemId="item.id"/>
@@ -203,8 +192,10 @@ const selectImage = (path:string):void => {
           </Link>
         </template>
 
-        <template v-if="item.priceable_type=='auction' && isAuctionInProgressNow">
-          <Button variant="default" class="flex-1">{{$t('Join To This Auction')}}</Button>
+        <template v-if="item.priceable_type=='auction' && item.priceable.is_active_now">
+          <Link :href="showBid(item.priceable_id).url">
+            <Button variant="default" >{{$t('Join To This Auction')}}</Button>
+          </Link>
         </template>
         
       </div>

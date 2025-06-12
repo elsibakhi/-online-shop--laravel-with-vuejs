@@ -4,7 +4,7 @@ import { Button } from 'primevue';
 import ItemController from '@/actions/Modules/Vendor/Http/Controllers/ItemController';
 import { Item } from '@vendor/js/types/Item';
 import axios from 'axios';
-
+import { CalendarDate, now, parseTime,Time,parseDateTime } from '@internationalized/date'
 
 const props =defineProps<{
   item: Item,
@@ -15,8 +15,9 @@ const itemStore = useItemStore();
 
 const onPreview = async () => {
         const show = ItemController.show(props.item.id) 
-        await axios.get(show.url).then(res => {itemStore.changeItemInDrawer(res.data)})
+        await axios.get(show.url).then(res => {itemStore.changeItemInDrawer(res.data) })
    
+      
 }
 
 </script>

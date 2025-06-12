@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('auctions', function (Blueprint $table): void {
+        Schema::create('bids', function (Blueprint $table): void {
             $table->id();
-            $table->timestamp('start');
-            $table->timestamp('end');
-            $table->enum('status', ['pending', 'started', 'done', 'fails', 'postponed'])->default('pending');
-            $table->float('initial_price');
-            $table->float('current_price');
+            $table->foreignId('auction_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->float('amount');
+            $table->enum('status', ['pending', 'canceled','win','lose'])->default('pending');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('auctions');
+        Schema::dropIfExists('bids');
     }
 };
