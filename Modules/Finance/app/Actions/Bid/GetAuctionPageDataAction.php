@@ -8,7 +8,7 @@ class GetAuctionPageDataAction
     {
 
         // dd($this->check($auction));
-        abort_unless($auction->is_active_now, 404);
+        abort_unless($auction->status=='started', 404);
 
         $lastBid = $auction->bids()->where('status', 'pending')->first();
         $youAreWinner = false;

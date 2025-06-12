@@ -12,7 +12,7 @@ export interface Item {
      
       user_start?: string;
       user_end?: string;
-      is_active_now?: boolean;
+      status?: "pending"|"started"|"done"|"fails"|"postponed";
       isBlackFridaySupported?: boolean;
     };
     extensions: { id: number; path: string }[];

@@ -15,7 +15,7 @@ class MakeBidOnAuctionAction
 
         // Update the auction's current price if the bid is higher
 
-        if ($auction->is_active_now) {
+        if ($auction->status=='started') {
             if ($data['amount'] > $auction->current_price) {
                 if (auth()->user()->balance >= $data['amount']) {
 

@@ -192,7 +192,7 @@ const selectImage = (path:string):void => {
           </Link>
         </template>
 
-        <template v-if="item.priceable_type=='auction' && item.priceable.is_active_now">
+        <template v-if="item.priceable_type=='auction' && item.priceable.status=='started'">
           <Link :href="showBid(item.priceable_id).url">
             <Button variant="default" >{{$t('Join To This Auction')}}</Button>
           </Link>

@@ -14,25 +14,9 @@ class Auction extends Model
 
     protected $fillable = ['start', 'end', 'status', 'initial_price', 'current_price'];
 
-    protected $appends = ['is_active_now', 'user_start', 'user_end'];
+    protected $appends = [ 'user_start', 'user_end'];
 
-    protected function isActiveNow(): Attribute
-    {
 
-        return Attribute::make(
-
-            get: function () {
-                $startDateTime = Carbon::parse($this->start, 'UTC');
-                $endDateTime = Carbon::parse($this->end, 'UTC');
-
-                $now = Carbon::now('UTC');
-
-                // Check if now is between start and end
-                return $now->between($startDateTime, $endDateTime);
-            }
-
-        );
-    }
 
     protected function userStart(): Attribute
     {
