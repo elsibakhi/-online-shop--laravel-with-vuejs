@@ -111,11 +111,11 @@ import { useI18n } from 'vue-i18n';
 import { bid } from '@/actions/Modules/Finance/Http/Controllers/BidController';
 import { useToast } from '@/components/ui/toast';
 import Toaster from '@/components/ui/toast/Toaster.vue';
-import {  now ,fromDate} from '@internationalized/date'
+
 
 
   const props = defineProps([
-    'auction','youAreWinner'
+    'auction','youAreWinner','now'
   ]);
   const page =usePage();
   const errors = computed(() => page.props.errors );
@@ -156,13 +156,13 @@ watch(
   // Convert end_time (e.g., "17:00:00") into a Date object
   
 
-const nowUTC = now("UTC");
+const now = new Date(props.now);
 
-const endsAt = fromDate(new Date(auction.end));
-console.log(new Date(auction.end))
+const endsAt = new Date(auction.end);
 
-const remainingSeconds = ref(Math.floor(nowUTC.compare(endsAt) / 1000));
+const remainingSeconds = ref(Math.floor( (endsAt- now) / 1000));
 if (remainingSeconds.value<0) remainingSeconds.value=0; // if passed, it's for tomorrow
+
 
 
 const formattedTime = computed(() => {

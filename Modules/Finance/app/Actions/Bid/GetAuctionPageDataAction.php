@@ -30,6 +30,7 @@ class GetAuctionPageDataAction
         $auction->load(['item.extensions']);
         return  [
             'auction' => $auction,
+            'now' => now('UTC')->toDateTimeString(),
             'youAreWinner'=>$youAreWinner
           
         ];
