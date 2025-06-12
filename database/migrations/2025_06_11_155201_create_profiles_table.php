@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->enum('locale',['en','ar'])->default('en');
-            $table->enum('timezone',DateTimeZone::listIdentifiers());
+            $table->enum('locale', ['en', 'ar'])->default('en');
+            $table->enum('timezone', DateTimeZone::listIdentifiers());
             $table->string('avatar')->nullable();
             $table->string('phone')->nullable();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();

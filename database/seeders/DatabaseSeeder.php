@@ -21,10 +21,10 @@ class DatabaseSeeder extends Seeder
             'username' => 'elsibakhi',
             'email' => 'baraa@gmail.com',
             'role' => 'admin',
-           
+
         ])->profile()->create([
-            'timezone'=>'Asia/Gaza',
-            
+            'timezone' => 'Asia/Gaza',
+
         ]);
         User::factory()->create([
             'name' => 'Ali',
@@ -33,8 +33,8 @@ class DatabaseSeeder extends Seeder
             'role' => 'vendor',
             'balance' => 1000,
         ])->profile()->create([
-            'timezone'=>'Asia/Qatar',
-            
+            'timezone' => 'Asia/Qatar',
+
         ]);
         User::factory()->create([
             'name' => 'Abood',
@@ -43,8 +43,8 @@ class DatabaseSeeder extends Seeder
             'role' => 'vendor',
             'balance' => 1000,
         ])->profile()->create([
-            'timezone'=>'Africa/Algiers',
-            
+            'timezone' => 'Africa/Algiers',
+
         ]);
         User::factory()->create([
             'name' => 'Mohammed',
@@ -53,8 +53,8 @@ class DatabaseSeeder extends Seeder
             'role' => 'customer',
             'balance' => 1000,
         ])->profile()->create([
-            'timezone'=>'Asia/Gaza',
-            
+            'timezone' => 'Asia/Gaza',
+
         ]);
         User::factory()->create([
             'name' => 'Hazem',
@@ -63,8 +63,8 @@ class DatabaseSeeder extends Seeder
             'role' => 'customer',
             'balance' => 1000,
         ])->profile()->create([
-            'timezone'=>'Africa/Cairo',
-            
+            'timezone' => 'Africa/Cairo',
+
         ]);
 
         $this->call([

@@ -19,8 +19,6 @@ trait ItemServiceHelper
 
         $modelRepo = $this->getPriceableRepository($request->input('payment_type'));
 
-      
-
         // Create the instance
         return $modelRepo->create($request->validated());
 
@@ -175,6 +173,4 @@ trait ItemServiceHelper
         return new $modelRepo;
 
     }
-
-   
 }

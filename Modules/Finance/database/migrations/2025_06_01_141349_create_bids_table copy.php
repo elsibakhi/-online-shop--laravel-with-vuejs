@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('auction_id')->constrained()->cascadeOnDelete();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->float('amount');
-            $table->enum('status', ['pending', 'canceled','win','lose'])->default('pending');
+            $table->enum('status', ['pending', 'canceled', 'win', 'lose'])->default('pending');
             $table->timestamps();
         });
     }

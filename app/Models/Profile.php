@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
 {
-
     use HasFactory;
 
     protected $fillable = [
@@ -17,6 +16,4 @@ class Profile extends Model
         'phone',
         'location_id',
     ];
-
-    
 }

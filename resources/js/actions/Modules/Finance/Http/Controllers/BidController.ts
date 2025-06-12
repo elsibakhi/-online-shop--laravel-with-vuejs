@@ -2,7 +2,7 @@ import { queryParams, type QueryParams } from './../../../../../wayfinder'
 
 /**
 * @see \Modules\Finance\Http\Controllers\BidController::show
-* @see Modules/Finance/app/Http/Controllers/BidController.php:23
+* @see Modules/Finance/app/Http/Controllers/BidController.php:18
 * @route '/auction/{auction}/bid'
 */
 export const show = (args: { auction: number | { id: number } } | [auction: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -20,7 +20,7 @@ show.definition = {
 
 /**
 * @see \Modules\Finance\Http\Controllers\BidController::show
-* @see Modules/Finance/app/Http/Controllers/BidController.php:23
+* @see Modules/Finance/app/Http/Controllers/BidController.php:18
 * @route '/auction/{auction}/bid'
 */
 show.url = (args: { auction: number | { id: number } } | [auction: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -51,7 +51,7 @@ show.url = (args: { auction: number | { id: number } } | [auction: number | { id
 
 /**
 * @see \Modules\Finance\Http\Controllers\BidController::show
-* @see Modules/Finance/app/Http/Controllers/BidController.php:23
+* @see Modules/Finance/app/Http/Controllers/BidController.php:18
 * @route '/auction/{auction}/bid'
 */
 show.get = (args: { auction: number | { id: number } } | [auction: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -64,7 +64,7 @@ show.get = (args: { auction: number | { id: number } } | [auction: number | { id
 
 /**
 * @see \Modules\Finance\Http\Controllers\BidController::show
-* @see Modules/Finance/app/Http/Controllers/BidController.php:23
+* @see Modules/Finance/app/Http/Controllers/BidController.php:18
 * @route '/auction/{auction}/bid'
 */
 show.head = (args: { auction: number | { id: number } } | [auction: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -77,7 +77,7 @@ show.head = (args: { auction: number | { id: number } } | [auction: number | { i
 
 /**
 * @see \Modules\Finance\Http\Controllers\BidController::bid
-* @see Modules/Finance/app/Http/Controllers/BidController.php:31
+* @see Modules/Finance/app/Http/Controllers/BidController.php:26
 * @route '/auction/{auction}/bid'
 */
 export const bid = (args: { auction: number | { id: number } } | [auction: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -95,7 +95,7 @@ bid.definition = {
 
 /**
 * @see \Modules\Finance\Http\Controllers\BidController::bid
-* @see Modules/Finance/app/Http/Controllers/BidController.php:31
+* @see Modules/Finance/app/Http/Controllers/BidController.php:26
 * @route '/auction/{auction}/bid'
 */
 bid.url = (args: { auction: number | { id: number } } | [auction: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -126,7 +126,7 @@ bid.url = (args: { auction: number | { id: number } } | [auction: number | { id:
 
 /**
 * @see \Modules\Finance\Http\Controllers\BidController::bid
-* @see Modules/Finance/app/Http/Controllers/BidController.php:31
+* @see Modules/Finance/app/Http/Controllers/BidController.php:26
 * @route '/auction/{auction}/bid'
 */
 bid.post = (args: { auction: number | { id: number } } | [auction: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {

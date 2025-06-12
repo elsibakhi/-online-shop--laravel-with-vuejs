@@ -12,8 +12,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('balance', [OrderController::class, 'getBalance'])->name('finance.balance');
     Route::resource('finances', FinanceController::class)->names('finance');
 
-
-    //bids 
+    // bids
     Route::get('auction/{auction}/bid', [BidController::class, 'show'])->name('auction.bid.show');
     Route::post('auction/{auction}/bid', [BidController::class, 'bid'])->name('auction.bid.store');
 

@@ -52,9 +52,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-
     protected $appends = ['balance_with_overhead'];
-    
+
     /**
      * Get the attributes that should be cast.
      *
@@ -68,33 +67,29 @@ class User extends Authenticatable
         ];
     }
 
-    public function canJoinAuction( $auction){
-       $auction= Auction::findOrFail($auction);
-     return   $auction->item->user_id === $this->id || $auction->initial_price < $this->balance;
+    public function canJoinAuction($auction)
+    {
+        $auction = Auction::findOrFail($auction);
+
+        return $auction->item->user_id === $this->id || $auction->initial_price < $this->balance;
     }
 
- 
-
-   /**
-
+    /**
      * Get the user's balance with overhead.
-
      */
+    protected function balanceWithOverhead(): Attribute
+    {
 
-     protected function balanceWithOverhead(): Attribute
-     {
-          
         $overhead = $this->bids()
-        ->where('status', 'pending')
-        ->sum('amount'); // total amount of pending bids
+            ->where('status', 'pending')
+            ->sum('amount'); // total amount of pending bids
 
+        return Attribute::make(
 
-return Attribute::make(
+            get: fn ($value) => $this->balance - $overhead,
 
-get: fn ( $value) => $this->balance-$overhead,
-
-);
-     }
+        );
+    }
 
     public function items()
     {
@@ -111,10 +106,13 @@ get: fn ( $value) => $this->balance-$overhead,
         return $this->hasMany(PurchaseTransaction::class, 'buyer_id');
     }
 
-    public function bids(){
+    public function bids()
+    {
         return $this->hasMany(Bid::class);
     }
-    public function profile(){
+
+    public function profile()
+    {
         return $this->hasOne(Profile::class);
     }
 }

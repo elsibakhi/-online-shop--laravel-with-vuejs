@@ -13,10 +13,9 @@ class CreateBidRequest extends FormRequest
     {
 
         return [
-           
+
             'amount' => ['required', 'numeric'],
-            
-           
+
         ];
     }
 
