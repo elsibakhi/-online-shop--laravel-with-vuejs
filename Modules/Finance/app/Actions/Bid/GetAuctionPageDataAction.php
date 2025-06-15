@@ -7,7 +7,7 @@ class GetAuctionPageDataAction
     public function execute($auction)
     {
 
-        // dd($this->check($auction));
+       
         abort_unless($auction->status=='started', 404);
 
         $lastBid = $auction->bids()->where('status', 'pending')->first();

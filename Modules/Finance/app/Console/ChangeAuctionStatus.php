@@ -2,7 +2,10 @@
 
 namespace Modules\Finance\Console;
 
+use App\Models\User;
 use Illuminate\Console\Command;
+use Illuminate\Database\Eloquent\Builder;
+use Modules\Finance\Models\Bid;
 use Modules\Vendor\Models\Auction;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
@@ -35,7 +38,7 @@ class ChangeAuctionStatus extends Command
 
         //done
         Auction::whereNowOrPast('start')->whereNowOrFuture('end')->update(['status'=>'started']);
-        Auction::wherePast('end')->where('status','pending')->update(['status'=>'done']);
+        Auction::wherePast('end')->whereIn('status',['started','pending'])->update(['status'=>'done']);
         $this->info('The auctions status changed successfully!');
     }
 
