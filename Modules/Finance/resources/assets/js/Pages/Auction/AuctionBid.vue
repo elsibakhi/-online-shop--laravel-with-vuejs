@@ -18,7 +18,7 @@
           <div class="p-4 mb-6 border rounded-lg shadow">
             <div class="flex items-start justify-between">
               <div>
-                <img :src="'/storage/' + item.extensions[0].path" alt="" class="object-cover w-32 h-32 rounded" />
+                <img :src="item.extensions[0]?.path?'/storage/' + item.extensions[0].path:defaultImage" alt="" class="object-cover w-32 h-32 rounded" />
                 <h2 class="font-medium">{{ item.title }}</h2>
                 <p class="text-sm text-gray-600">{{ item.description }}</p>
               </div>
@@ -122,7 +122,7 @@ import { bid } from '@/actions/Modules/Finance/Http/Controllers/BidController';
 import { useToast } from '@/components/ui/toast';
 import Toaster from '@/components/ui/toast/Toaster.vue';
 import Label from '@/components/ui/label/Label.vue';
-
+import defaultImage from "@vendor/images/items/default/item.png"
 
 
 const props = defineProps([
@@ -138,7 +138,7 @@ const currentPrice = ref(auction.current_price);
 const youAreWinner = ref(props.youAreWinner);
 const usersInAuctionNow = ref([]);
 
-
+console.log(props.availableBalance)
 
 const form = useForm({
   amount: auction.current_price + 1,
