@@ -89,6 +89,32 @@ const { contains } = useFilter({ sensitivity: 'base' })
 })
 
 
+const date = computed(() => {
+  return convertDateToDateFormat(metaData.data.priceable?.user_start ? new Date(metaData.data.priceable.user_start) : new Date())
+})
+const start = computed(() => {
+  return convertDateToTimeFormat( metaData.data.priceable?.user_start ? new Date(metaData.data.priceable.user_start) : new Date())
+})
+const end= computed(() => {
+ return convertDateToTimeFormat( metaData.data.priceable?.user_end ? new Date(metaData.data.priceable.user_end) : new Date())
+})
+
+
+
+function convertDateToTimeFormat( date:Date) {
+  const hours = date.getHours().toString().padStart(2, '0');
+  const minutes = date.getMinutes().toString().padStart(2, '0');
+  const seconds = date.getSeconds().toString().padStart(2, '0');
+  return `${hours}:${minutes}:${seconds}`;
+ 
+}
+function convertDateToDateFormat( date:Date) {
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = (date.getMonth()+1).toString().padStart(2, '0');
+  const year = date.getFullYear().toString();
+  return `${year}-${month}-${day}`;
+ 
+}
 
 </script>
 
@@ -541,10 +567,10 @@ const { contains } = useFilter({ sensitivity: 'base' })
 <DateInput name="date" :label="$t('Auction Date')" 
  :min="today(getLocalTimeZone())"
   :max="today(getLocalTimeZone()).add({months: config.max_auction_session_date_from_today_months})"
-  :value="metaData.data.priceable?.date"
-/>
-<TimeInput  :value="metaData.data.priceable?.start_time" name="start_time" :label="$t('Start Time')"  />
-<TimeInput  :value="metaData.data.priceable?.end_time" name="end_time" :label="$t('End Time')" :min="parseTime(form.values.start_time?form.values.start_time : '00:00:00' ).add({hours:config.min_auction_session_hours})" />
+  :value="date"
+  />
+  <TimeInput  :value="start" name="start_time" :label="$t('Start Time')"  />
+<TimeInput  :value="end" name="end_time" :label="$t('End Time')" :min="parseTime(start?start : '00:00:00' ).add({hours:config.min_auction_session_hours})" />
 
 
 

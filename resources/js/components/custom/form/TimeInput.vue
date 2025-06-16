@@ -12,7 +12,7 @@ import {
 
 } from '@/components/ui/form'
 
-import { parseTime } from '@internationalized/date'
+import { parseTime} from '@internationalized/date'
 
 const props =defineProps([
   'name',

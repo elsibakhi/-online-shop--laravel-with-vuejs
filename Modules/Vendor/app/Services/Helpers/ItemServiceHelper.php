@@ -3,6 +3,7 @@
 namespace Modules\Vendor\Services\Helpers;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Modules\Admin\Repositories\TagRepository;
 use Modules\Vendor\Http\Requests\ItemRequest;
@@ -101,13 +102,17 @@ trait ItemServiceHelper
     {
 
         $modelRepo = $this->getPriceableRepository($request->input('payment_type'));
+        $data = $request->validated();
+        if ($request->input('payment_type') == 'auction') {
 
-        $data = $this->getPriceableData($modelRepo, $request);
+            $data['start'] = Carbon::parse($data['date'].' '.$data['start_time'], auth()->user()->profile->timezone)->setTimezone('UTC')->toDateTimeString();
+            $data['end'] = Carbon::parse($data['date'].' '.$data['end_time'], auth()->user()->profile->timezone)->setTimezone('UTC')->toDateTimeString();
+        }
 
         if ($itemPriceabletype == $request->input('payment_type')) {
             return [
                 'hasPricableWithThisType' => true,
-                'payload' => $data,
+                'payload' => collect($data)->only($modelRepo->getFields())->toArray(),
             ];
 
         } else {

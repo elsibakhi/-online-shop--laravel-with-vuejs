@@ -126,14 +126,14 @@ import Label from '@/components/ui/label/Label.vue';
 
 
 const props = defineProps([
-  'auction', 'youAreWinner', 'now'
+  'auction', 'youAreWinner', 'now','availableBalance'
 ]);
 const page = usePage();
 const errors = computed(() => page.props.errors);
 const user = page.props.auth.user;
 const auction = props.auction;
 const item = auction.item;
-const userBalance = user.balance;
+const userBalance = props.availableBalance;
 const currentPrice = ref(auction.current_price);
 const youAreWinner = ref(props.youAreWinner);
 const usersInAuctionNow = ref([]);

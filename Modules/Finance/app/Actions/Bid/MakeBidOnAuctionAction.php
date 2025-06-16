@@ -15,9 +15,9 @@ class MakeBidOnAuctionAction
 
         // Update the auction's current price if the bid is higher
 
-        if ($auction->status=='started') {
+        if ($auction->status == 'started') {
             if ($data['amount'] > $auction->current_price) {
-                if (auth()->user()->balance >= $data['amount']) {
+                if (auth()->user()->availableBalanceWithoutTheOverheadOfAnAuction($auction->id) >= $data['amount']) {
 
                     DB::transaction(function () use ($data, $auction) {
                         // Deduct the bid amount from the user's balance

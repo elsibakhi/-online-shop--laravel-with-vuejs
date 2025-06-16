@@ -7,8 +7,7 @@ class GetAuctionPageDataAction
     public function execute($auction)
     {
 
-       
-        abort_unless($auction->status=='started', 404);
+        abort_unless($auction->status == 'started', 404);
 
         $lastBid = $auction->bids()->where('status', 'pending')->first();
         $youAreWinner = false;
@@ -21,6 +20,8 @@ class GetAuctionPageDataAction
             'auction' => $auction,
             'now' => now('UTC')->toDateTimeString(),
             'youAreWinner' => $youAreWinner,
+            // this is the balance with overhead, which is used to show the user how much they can bid
+            'availableBalance' => auth()->user()->availableBalanceWithoutTheOverheadOfAnAuction($auction->id),
 
         ];
     }

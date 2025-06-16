@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -91,8 +90,24 @@ class User extends Authenticatable
 
         );
     }
- 
 
+    /**
+     * Get the user's available balance without the overhead of an auction.
+     */
+    // This method calculates the available balance without considering the overhead of a specific auction.
+    // It sums up the amounts of all pending bids that are not associated with the given auction ID.
+    // It returns the total amount available for the user to use in other transactions or auctions.
+    // Note: The method does not return a value, it should return the sum.
+    // This method is useful for determining how much balance a user has available for new bids or purchases,
+    // excluding any amounts that are currently tied up in pending bids for a specific auction.
+    // It is important to ensure that the auctionId passed to this method is valid and corresponds to an existing auction.
+    public function availableBalanceWithoutTheOverheadOfAnAuction($auctionId)
+    {
+        $this->bids()
+            ->whereNot('auction_id', $auctionId)
+            ->where('status', 'pending')
+            ->sum('amount');
+    }
 
     public function items()
     {

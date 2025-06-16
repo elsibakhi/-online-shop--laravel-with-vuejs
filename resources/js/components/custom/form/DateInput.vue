@@ -12,7 +12,7 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
-import { CalendarDate, DateFormatter, getLocalTimeZone, parseDate, today ,} from '@internationalized/date'
+import { CalendarDate, DateFormatter, getLocalTimeZone, parseDate, fromDate ,} from '@internationalized/date'
 import { toast } from '@/components/ui/toast'
 import { toTypedSchema } from '@vee-validate/zod'
 import { CalendarIcon } from 'lucide-vue-next'

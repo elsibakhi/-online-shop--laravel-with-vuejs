@@ -14,9 +14,7 @@ class Auction extends Model
 
     protected $fillable = ['start', 'end', 'status', 'initial_price', 'current_price'];
 
-    protected $appends = [ 'user_start', 'user_end'];
-
-
+    protected $appends = ['user_start', 'user_end'];
 
     protected function userStart(): Attribute
     {
