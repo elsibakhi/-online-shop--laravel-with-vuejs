@@ -80,7 +80,7 @@ show.head = (args: { auction: number | { id: number } } | [auction: number | { i
 * @see Modules/Finance/app/Http/Controllers/BidController.php:26
 * @route '/auction/{auction}/bid'
 */
-export const store = (args: { auction: number | { id: number } } | [auction: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+export const store = (args: { auction: string | number } | [auction: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
     url: string,
     method: 'post',
 } => ({
@@ -98,13 +98,9 @@ store.definition = {
 * @see Modules/Finance/app/Http/Controllers/BidController.php:26
 * @route '/auction/{auction}/bid'
 */
-store.url = (args: { auction: number | { id: number } } | [auction: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
+store.url = (args: { auction: string | number } | [auction: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { auction: args }
-    }
-
-    if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
-        args = { auction: args.id }
     }
 
     if (Array.isArray(args)) {
@@ -114,9 +110,7 @@ store.url = (args: { auction: number | { id: number } } | [auction: number | { i
     }
 
     const parsedArgs = {
-        auction: typeof args.auction === 'object'
-        ? args.auction.id
-        : args.auction,
+        auction: args.auction,
     }
 
     return store.definition.url
@@ -129,7 +123,7 @@ store.url = (args: { auction: number | { id: number } } | [auction: number | { i
 * @see Modules/Finance/app/Http/Controllers/BidController.php:26
 * @route '/auction/{auction}/bid'
 */
-store.post = (args: { auction: number | { id: number } } | [auction: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+store.post = (args: { auction: string | number } | [auction: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
     url: string,
     method: 'post',
 } => ({

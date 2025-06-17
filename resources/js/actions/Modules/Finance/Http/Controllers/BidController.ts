@@ -80,7 +80,7 @@ show.head = (args: { auction: number | { id: number } } | [auction: number | { i
 * @see Modules/Finance/app/Http/Controllers/BidController.php:26
 * @route '/auction/{auction}/bid'
 */
-export const bid = (args: { auction: number | { id: number } } | [auction: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+export const bid = (args: { auction: string | number } | [auction: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
     url: string,
     method: 'post',
 } => ({
@@ -98,13 +98,9 @@ bid.definition = {
 * @see Modules/Finance/app/Http/Controllers/BidController.php:26
 * @route '/auction/{auction}/bid'
 */
-bid.url = (args: { auction: number | { id: number } } | [auction: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
+bid.url = (args: { auction: string | number } | [auction: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { auction: args }
-    }
-
-    if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
-        args = { auction: args.id }
     }
 
     if (Array.isArray(args)) {
@@ -114,9 +110,7 @@ bid.url = (args: { auction: number | { id: number } } | [auction: number | { id:
     }
 
     const parsedArgs = {
-        auction: typeof args.auction === 'object'
-        ? args.auction.id
-        : args.auction,
+        auction: args.auction,
     }
 
     return bid.definition.url
@@ -129,7 +123,7 @@ bid.url = (args: { auction: number | { id: number } } | [auction: number | { id:
 * @see Modules/Finance/app/Http/Controllers/BidController.php:26
 * @route '/auction/{auction}/bid'
 */
-bid.post = (args: { auction: number | { id: number } } | [auction: number | { id: number } ] | number | { id: number }, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+bid.post = (args: { auction: string | number } | [auction: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
     url: string,
     method: 'post',
 } => ({

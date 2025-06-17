@@ -103,7 +103,7 @@ class User extends Authenticatable
     // It is important to ensure that the auctionId passed to this method is valid and corresponds to an existing auction.
     public function availableBalanceWithoutTheOverheadOfAnAuction($auctionId)
     {
-       return $this->balance - $this->bids()
+        return $this->balance - $this->bids()
             ->whereNot('auction_id', $auctionId)
             ->where('status', 'pending')
             ->sum('amount');

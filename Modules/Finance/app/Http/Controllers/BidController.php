@@ -23,7 +23,7 @@ class BidController extends Controller
         return Inertia::render('Finance::Auction/AuctionBid', $data);
     }
 
-    public function bid(CreateBidRequest $request, MakeBidOnAuctionAction $makeBidOnAuctionAction, Auction $auction)
+    public function bid(CreateBidRequest $request, MakeBidOnAuctionAction $makeBidOnAuctionAction, $auction)
     {
 
         $makeBidOnAuctionAction->execute($request->validated(), $auction);
