@@ -3,5 +3,6 @@ export interface Item {
     title: string;
     sub_title: string;
     price: number;
+    user_id: number;
     image_path?: string;
 }

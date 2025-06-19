@@ -6,11 +6,16 @@ use Modules\Finance\Http\Controllers\BidController;
 use Modules\Finance\Http\Controllers\FinanceController;
 use Modules\Finance\Http\Controllers\InvoiceController;
 use Modules\Finance\Http\Controllers\OrderController;
+use Modules\Finance\Http\Controllers\PurchaseTransactionController;
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('balance', [OrderController::class, 'getBalance'])->name('finance.balance');
     Route::resource('finances', FinanceController::class)->names('finance');
+
+    // purchase transactions
+    Route::get('purchase/transactions', [PurchaseTransactionController::class, 'index'])->name('purchase-transactions.index');
+    Route::delete('purchase/transactions/{transaction}', [PurchaseTransactionController::class, 'destroy'])->name('purchase-transactions.destroy');
 
     // bids
     Route::get('auction/{auction}/bid', [BidController::class, 'show'])->name('auction.bid.show');

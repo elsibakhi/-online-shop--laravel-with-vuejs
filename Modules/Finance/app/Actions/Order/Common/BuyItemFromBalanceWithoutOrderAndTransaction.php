@@ -32,6 +32,10 @@ trait BuyItemFromBalanceWithoutOrderAndTransaction
 
             $item->decrement('remaining_quantity', $data['quantity']);
 
+            if ($item->remaining_quantity == 0) {
+                $item->update(['status' => 'sold']);
+            }
+
             $item->seller->increment('balance', $total_price_after_discount);
 
             $user->decrement('balance', $total_price_after_discount);

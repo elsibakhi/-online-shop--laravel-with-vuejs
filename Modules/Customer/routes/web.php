@@ -1,9 +1,11 @@
 <?php
 
+use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
 use Illuminate\Support\Facades\Route;
 use Modules\Customer\Http\Controllers\CartController;
 use Modules\Customer\Http\Controllers\CustomerController;
 use Modules\Customer\Http\Controllers\PostController;
+use Modules\Customer\Http\Controllers\RatingController;
 
 Route::middleware(['auth', 'verified'])->group(function (): void {
     Route::get('post/timeline', [PostController::class, 'timeline'])->name('post.timeline');
@@ -12,6 +14,9 @@ Route::middleware(['auth', 'verified'])->group(function (): void {
     Route::post('post/like/{post}', [PostController::class, 'like'])->name('post.like');
     Route::post('post/unlike/{post}', [PostController::class, 'unlike'])->name('post.unlike');
     Route::resource('post', PostController::class)->only(['index', 'store', 'update', 'destroy', 'show']);
+
+    // Rating
+    Route::post('rate/{item}', [RatingController::class, 'store'])->middleware([HandlePrecognitiveRequests::class])->name('item.rate');
 
 });
 

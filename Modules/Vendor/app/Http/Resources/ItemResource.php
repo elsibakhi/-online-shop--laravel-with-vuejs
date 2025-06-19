@@ -18,6 +18,7 @@ class ItemResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'status' => $this->status,
+            'user_id' => $this->user_id,
             'sub_title' => $this->subCategory->name,
             'priceable_type' => $this->priceable_type,
             'image_path' => $this->when($this->extensions()->count() > 0, fn () => $this->extensions()->first()->path),

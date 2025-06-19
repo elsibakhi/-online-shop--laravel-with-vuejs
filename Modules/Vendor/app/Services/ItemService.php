@@ -164,4 +164,11 @@ class ItemService
     {
         return ItemInSearchResource::collection($this->itemRepository->search($data['query']));
     }
+
+    public function rate(int $item, array $data)
+    {
+
+        $this->itemRepository->findOrFail($item)->ratings()->create($data);
+
+    }
 }

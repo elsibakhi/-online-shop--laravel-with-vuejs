@@ -33,7 +33,27 @@
           "back": "Back",
           "download": "Download",
           "thank_you": "Thank you for your purchase!"
-        }
+        },
+        "Items":"Items",
+        "Amount":"Amount",
+        "Currency":"Currency",
+        "Status":"Status",
+        "Description":"Description",
+        "Date":"Date",
+        "Purchase Transactions":"Purchase Transactions",
+        "Show Invoice":"Show Invoice",
+        "":"",
+        "":"",
+        "":"",
+        "":"",
+        "":"",
+        "":"",
+        "":"",
+        "":"",
+        "":"",
+        "":"",
+        "":"",
+        "":""
       
       
  

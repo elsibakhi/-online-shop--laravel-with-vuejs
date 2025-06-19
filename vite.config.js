@@ -33,6 +33,7 @@ export default defineConfig({
             '@admin': resolve(__dirname, 'Modules/Admin/resources/assets/js'),
              '@vendor': resolve(__dirname, 'Modules/Vendor/resources/assets'),
              '@customer': resolve(__dirname, 'Modules/Customer/resources/assets'),
+             '@finance': resolve(__dirname, 'Modules/Finance/resources/assets'),
           
          
          

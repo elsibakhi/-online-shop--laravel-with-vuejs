@@ -6,7 +6,7 @@ export function resolveVuePage(name: string):Promise<any> {
    
     const parts: string[] = name.split('::')
     if (parts.length > 1) {
-       
+      
         const modules = import.meta.glob('../../Modules/**/Pages/**/*.vue')
         const modulePath: string[] = Object.keys(modules)
         const modulePages: { [key: string]: string } = {}
@@ -24,6 +24,7 @@ export function resolveVuePage(name: string):Promise<any> {
         })
        
       
+       
         if (Object.keys(modulePages).includes(name)) {
             const path = modulePages[name]
             return resolvePageComponent(path, import.meta.glob<DefineComponent>('../../Modules/**/Pages/**/*.vue'))

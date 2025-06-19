@@ -17,7 +17,7 @@ return new class extends Migration
             $table->longText('description')->nullable();
             $table->nullableMorphs('priceable');
             $table->string('code')->unique();
-            $table->enum('status', ['available', 'sold', 'suspended', 'deleted'])->default('available');
+            $table->enum('status', ['available', 'not_available', 'sold', 'suspended', 'deleted'])->default('not_available');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('sub_category_id')->constrained()->cascadeOnDelete();
             $table->unsignedInteger('quantity');

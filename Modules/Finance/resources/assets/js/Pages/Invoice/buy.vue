@@ -59,7 +59,7 @@
             </Column>
             <Column :header="t('invoice.discount')">
               <template #body="{ data }">
-                {{ formatCurrency(data.discount) }}
+                {{ formatCurrency(data.price * data.quantity * data.discount)}}
               </template>
             </Column>
             <Column :header="t('invoice.totalAfterDiscount')">

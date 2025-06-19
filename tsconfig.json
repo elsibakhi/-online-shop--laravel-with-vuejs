@@ -16,6 +16,7 @@
             "@admin/*": ["./Modules/Admin/resources/assets/js/*"],
             "@vendor/*": ["./Modules/Vendor/resources/assets/*"],
             "@customer/*": ["./Modules/Customer/resources/assets/*"],
+            "@finance/*": ["./Modules/Finance/resources/assets/*"],
             "ziggy-js": ["./vendor/tightenco/ziggy"]
         }
     },

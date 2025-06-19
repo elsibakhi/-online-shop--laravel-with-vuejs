@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Cashier\Billable;
 use Laravel\Scout\Searchable;
+use Modules\Customer\Models\Rating;
 use Modules\Finance\Models\Bid;
 use Modules\Finance\Models\Order;
 use Modules\Finance\Models\PurchaseTransaction;
@@ -127,6 +128,11 @@ class User extends Authenticatable
     public function bids()
     {
         return $this->hasMany(Bid::class);
+    }
+
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class);
     }
 
     public function profile()

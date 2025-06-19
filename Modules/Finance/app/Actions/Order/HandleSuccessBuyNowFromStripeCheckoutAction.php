@@ -42,13 +42,18 @@ class HandleSuccessBuyNowFromStripeCheckoutAction
 
             $item->decrement('remaining_quantity', $quantity);
 
+            if ($item->remaining_quantity == 0) {
+                $item->update(['status' => 'sold']);
+            }
+
             $item->seller->increment('balance', $total_price);
 
-            $order->update(['status' => 'completed']);
+            $order->update(['status' => 'in_warehouse']);
 
             $transaction = auth()->user()->purchaseTransactions()->create([
 
                 'order_id' => $order->id,
+
                 'amount' => $total_price,
 
             ]);

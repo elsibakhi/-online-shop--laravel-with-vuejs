@@ -2,6 +2,62 @@ import load from './load'
 import { queryParams, type QueryParams } from './../../wayfinder'
 
 /**
+* @see \Modules\Customer\Http\Controllers\RatingController::rate
+* @see Modules/Customer/app/Http/Controllers/RatingController.php:33
+* @route '/rate/{item}'
+*/
+export const rate = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'post',
+} => ({
+    url: rate.url(args, options),
+    method: 'post',
+})
+
+rate.definition = {
+    methods: ['post'],
+    url: '/rate/{item}',
+}
+
+/**
+* @see \Modules\Customer\Http\Controllers\RatingController::rate
+* @see Modules/Customer/app/Http/Controllers/RatingController.php:33
+* @route '/rate/{item}'
+*/
+rate.url = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { item: args }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            item: args[0],
+        }
+    }
+
+    const parsedArgs = {
+        item: args.item,
+    }
+
+    return rate.definition.url
+            .replace('{item}', parsedArgs.item.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \Modules\Customer\Http\Controllers\RatingController::rate
+* @see Modules/Customer/app/Http/Controllers/RatingController.php:33
+* @route '/rate/{item}'
+*/
+rate.post = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'post',
+} => ({
+    url: rate.url(args, options),
+    method: 'post',
+})
+
+/**
 * @see \Modules\Vendor\Http\Controllers\ItemController::load
 * @see Modules/Vendor/app/Http/Controllers/ItemController.php:43
 * @route '/item/load'
@@ -464,6 +520,7 @@ show.head = (args: { item: string | number } | [item: string | number ] | string
 })
 
 const item = {
+    rate,
     load,
     search,
     index,

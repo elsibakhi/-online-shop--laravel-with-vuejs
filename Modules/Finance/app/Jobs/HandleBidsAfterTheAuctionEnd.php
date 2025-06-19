@@ -34,14 +34,35 @@ class HandleBidsAfterTheAuctionEnd implements ShouldQueue
 
         foreach ($unPaidUsers as $user) {
             DB::transaction(function () use ($user) {
-                $user->decrement('balance', $user->bids_sum_amount);
 
-                $user->bids()
+                $bids = $user->bids()
                     ->whereHas('auction', function (Builder $query) {
                         $query->where('status', 'done');
                     })
                     ->where('status', 'pending')
-                    ->update(['status' => 'win']);
+                    ->get();
+
+                foreach ($bids as $bid) {
+                    $order = $user->orders()->create([
+                        'status' => 'in_warehouse',
+                    ]);
+
+                    $item = $bid->auction->item;
+                    $user->decrement('balance', $bid->amount);
+                    $item->seller->increment('balance', $bid->amount);
+                    $item->update(['remaining_quantity' => 0, 'status' => 'sold']);
+                    $order->items()->attach([$item->id => ['quantity' => $item->remaining_quantity]]);
+                    $user->purchaseTransactions()->create([
+
+                        'order_id' => $order->id,
+
+                        'amount' => $bid->amount,
+
+                    ]);
+
+                    $bid->update(['status' => 'win']);
+                }
+
             });
         }
 

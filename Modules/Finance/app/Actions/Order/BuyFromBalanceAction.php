@@ -43,6 +43,7 @@ class BuyFromBalanceAction
                 $transaction = $user->purchaseTransactions()->create([
 
                     'order_id' => $order->id,
+
                     'amount' => $amount,
 
                 ]);

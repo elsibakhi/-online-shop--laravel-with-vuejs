@@ -28,7 +28,7 @@ class GetBuyNowStripeCheckoutFromPageAction
             $quantity = $data['quantity'];
 
             $order = $user->orders()->create([
-                'status' => 'pending',
+                'status' => 'in_warehouse',
             ]);
 
             $order->items()->attach($item, ['quantity' => $quantity]);

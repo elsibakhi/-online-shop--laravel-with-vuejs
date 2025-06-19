@@ -19,10 +19,12 @@ import { Button } from 'primevue';
 import ItemController from '@/actions/Modules/Vendor/Http/Controllers/ItemController';
 import { Item } from '@vendor/js/types/Item';
 import axios from 'axios';
+import { usePage } from '@inertiajs/vue3';
 
 const {t} = useI18n();
 
-const toast = useToast();
+const page = usePage();
+const emit = defineEmits(['rateItem'])
 
 const props =defineProps<{
   item: Item,
@@ -32,7 +34,11 @@ const props =defineProps<{
 const itemStore = useItemStore();
 const form = itemStore.formModal;
 
-const items = [
+const items = ref();
+
+
+if(page.props.auth.user?.id == props.item.user_id){
+  items.value=[
     {
         label: t('Edit'),
         command: () => {
@@ -48,7 +54,20 @@ const items = [
         }
     }
 
-];
+]
+}else{
+  items.value=[
+    {
+        label: t('Rate'),
+        command: () => {
+         emit('rateItem')
+        }
+    },
+ 
+
+]
+}
+
 
 
 

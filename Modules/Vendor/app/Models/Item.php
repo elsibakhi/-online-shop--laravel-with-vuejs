@@ -13,6 +13,7 @@ use Laravel\Scout\Searchable;
 use Modules\Admin\Models\SubCategory;
 use Modules\Admin\Models\Tag;
 use Modules\Customer\Models\Order;
+use Modules\Customer\Models\Rating;
 
 class Item extends Model
 {
@@ -50,6 +51,11 @@ class Item extends Model
     public function extensions()
     {
         return $this->hasMany(ItemExtension::class);
+    }
+
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class);
     }
 
     public function subSpecifications()
