@@ -115,17 +115,20 @@ switch (status) {
                             <div class="flex flex-col justify-between flex-1 gap-6 md:flex-row md:items-center">
                                 <div class="flex flex-row items-start justify-between gap-2 md:flex-col">
                                     <div>
+                                     
                                         <span class="text-sm font-medium text-surface-500 dark:text-surface-400">{{ item.sub_title}}</span>
                                         <div class="mt-2 text-lg font-medium">{{ item.title }}</div>
                                     </div>
-                                    <!-- <div class="p-1 bg-surface-100" style="border-radius: 30px">
-                                        <div class="flex items-center justify-center gap-2 px-2 py-1 bg-surface-0" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
-                                            <span class="text-sm font-medium text-surface-900">{{ item.rating }}</span>
-                                            <i class="text-yellow-500 pi pi-star-fill"></i>
-                                        </div>
-                                    </div> -->
+                             
                                 </div>
                                 <div class="flex flex-col gap-8 md:items-end">
+                                    <div class="p-1 bg-surface-100" style="border-radius: 30px">
+                                        <div class="flex items-center justify-center gap-2 px-2 py-1 bg-surface-0" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                                            <span v-if="item.rating>0" class="text-sm font-medium text-surface-900">{{ item.rating.toPrecision(2) }}/5</span>
+                                            <span v-else class="text-sm font-medium text-surface-900">Not Rated</span>
+                                            <Star class="text-gray-400" :class="{'text-orange-400':item.rating>0}" :size="20"  />
+                                        </div>
+                                    </div>
                                     <span class="text-xl font-semibold">${{ item.price }}</span>
                                     <div class="flex flex-row-reverse gap-2 md:flex-row">
                                         <slot name="btns" :item="item" :reset="resetDataView" />
@@ -146,6 +149,13 @@ switch (status) {
                 <div v-if="!loading||page>1" class="grid grid-cols-12 gap-2">
                     <div v-for="(item, index) in slotProps.items" :key="index" class="col-span-12 p-2 sm:col-span-6 xl:col-span-4">
                         <div class="flex flex-col p-6 border rounded border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900">
+                            <div class="p-1 bg-surface-100" style="border-radius: 30px">
+                                        <div class="flex items-center justify-center gap-2 px-2 py-1 bg-surface-0" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                                            <span v-if="item.rating>0" class="text-sm font-medium text-surface-900">{{ item.rating.toPrecision(2) }}/5</span>
+                                            <span v-else class="text-sm font-medium text-surface-900">Not Rated</span>
+                                            <Star class="text-gray-400" :class="{'text-orange-400':item.rating>0}" :size="20"  />
+                                        </div>
+                                    </div>
                             <div class="flex justify-center p-4 rounded bg-surface-50">
                                 <div class="relative mx-auto">
                                     <img class="w-full rounded" :src="item.hasOwnProperty('image_path')?('storage/'+item.image_path):defaultImage"  :alt="item.title" style="max-width: 300px"/>
@@ -160,12 +170,7 @@ switch (status) {
                                         <span class="text-sm font-medium text-surface-500 dark:text-surface-400">{{ item.sub_title }}</span>
                                         <div class="mt-1 text-lg font-medium">{{ item.title }}</div>
                                     </div>
-                                    <!-- <div class="p-1 bg-surface-100" style="border-radius: 30px">
-                                        <div class="flex items-center justify-center gap-2 px-2 py-1 bg-surface-0" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
-                                            <span class="text-sm font-medium text-surface-900">{{ item.rating }}</span>
-                                            <i class="text-yellow-500 pi pi-star-fill"></i>
-                                        </div>
-                                    </div> -->
+                               
                                 </div>
                                 <div class="flex flex-col gap-6 mt-6">
                                     <span class="text-2xl font-semibold">

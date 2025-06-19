@@ -1,3 +1,4 @@
+import ratings from './ratings'
 import load from './load'
 import { queryParams, type QueryParams } from './../../wayfinder'
 
@@ -521,6 +522,7 @@ show.head = (args: { item: string | number } | [item: string | number ] | string
 
 const item = {
     rate,
+    ratings,
     load,
     search,
     index,

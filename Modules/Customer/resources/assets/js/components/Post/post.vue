@@ -149,7 +149,7 @@ onMounted(() => {
       <X v-if="postStore.checkIfAuthUserHasThisPost(post.user.id)" cursor="pointer" :size="20" @click="onDelete(post.id)" />
 
     </span>
-    <div class="flex items-center mb-4"  >
+    <div class="flex items-center mb-4">
 
       <Avatar :image="post.user?.avatar" shape="circle" class="mr-3"  />
       <div>

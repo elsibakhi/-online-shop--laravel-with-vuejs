@@ -4,6 +4,7 @@ namespace Modules\Customer\Services;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Validation\ValidationException;
+use Modules\Customer\Http\Resources\RatingResource;
 use Modules\Customer\Repositories\RatingRepository;
 use Modules\Vendor\Services\ItemService;
 
@@ -25,5 +26,9 @@ class RatingService
         $data['user_id'] = $user->id;
         resolve(ItemService::class)->rate($item, $data);
 
+    }
+
+    public function loadForItem(int $itemId){
+          return  RatingResource::collection($this->ratingRepository->getRatingsAsPageForAnItem($itemId));
     }
 }

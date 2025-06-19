@@ -18,6 +18,9 @@ import { useItemStore } from '@vendor/js/Stores/Item';
 import ItemPreviewDrawer from "@vendor/js/Components/Item/show/preview.vue"
 import { Button } from 'primevue';
 import RatingModal from '@customer/js/components/Rating/modal.vue';
+import ItemRatingsModal from '@customer/js/components/Rating/list.vue';
+
+
 
 // set route item as active in sidebar
 useSetRouteAsActive("item")
@@ -55,12 +58,25 @@ const props = defineProps({
 
 const openRateModal = ref(false);
 const selectedItemForRating =ref();
-const rateItem = function(item:Object){
 
+const rateItem = function(item:Object){
+  
   selectedItemForRating.value=item;
   openRateModal.value=true;
 }
 //End Rating Section 
+
+
+//Start showing item Ratings Section 
+const openItemRatingsModal = ref(false);
+const selectedItemForShowingRatings =ref();
+const showItemRatings = function(item:Object){
+  
+  selectedItemForShowingRatings.value=item;
+  openItemRatingsModal.value=true;
+}
+
+//End showing item Ratings Section 
 
   const message = computed(() => page.props.message as string | undefined)
   if (message.value) {
@@ -127,10 +143,12 @@ const childCoponentsProps =ref({
     </template>
     <div class="py-10 mx-20 container-fluid ">
      
+
+
       <DataView  v-bind="childCoponentsProps.DataView"  >
             <template #btns="{item,reset}"  >
                   
-                    <Actions :item="item" :reset="reset" @rate-item="rateItem(item)" />
+                    <Actions :item="item" :reset="reset" @rate-item="rateItem(item)"  @show-item-ratings="showItemRatings(item)" />
                     
             </template>
       </DataView>
@@ -139,5 +157,6 @@ const childCoponentsProps =ref({
 
     <ItemPreviewDrawer /> 
     <RatingModal :item="selectedItemForRating" v-model:open="openRateModal"  />
+    <ItemRatingsModal :item="selectedItemForShowingRatings" v-model:open="openItemRatingsModal"  />
   </AuthenticatedLayout>
 </template>

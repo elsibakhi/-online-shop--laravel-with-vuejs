@@ -24,7 +24,7 @@ import { usePage } from '@inertiajs/vue3';
 const {t} = useI18n();
 
 const page = usePage();
-const emit = defineEmits(['rateItem'])
+const emit = defineEmits(['rateItem','showItemRatings'])
 
 const props =defineProps<{
   item: Item,
@@ -68,6 +68,13 @@ if(page.props.auth.user?.id == props.item.user_id){
 ]
 }
 
+
+items.value.push({
+        label: t('Show Ratings'),
+        command: () => {
+         emit('showItemRatings')
+        }
+    },)
 
 
 

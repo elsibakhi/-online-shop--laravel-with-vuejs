@@ -14,10 +14,14 @@ class ItemResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return [
+       
+         
+
+         return [
             'id' => $this->id,
             'title' => $this->title,
             'status' => $this->status,
+            'rating' => $this->ratings()->avg('rating'),
             'user_id' => $this->user_id,
             'sub_title' => $this->subCategory->name,
             'priceable_type' => $this->priceable_type,

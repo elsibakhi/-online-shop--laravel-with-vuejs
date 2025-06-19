@@ -40,11 +40,12 @@ class RatingController extends Controller
     }
 
     /**
-     * Show the specified resource.
+     * List ratings for a specific item as pages
      */
-    public function show($id)
+    public function load($item)
     {
-        return view('customer::show');
+        return $this->ratingService->loadForItem($item);
+       
     }
 
     /**

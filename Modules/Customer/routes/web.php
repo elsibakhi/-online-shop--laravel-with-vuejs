@@ -17,6 +17,7 @@ Route::middleware(['auth', 'verified'])->group(function (): void {
 
     // Rating
     Route::post('rate/{item}', [RatingController::class, 'store'])->middleware([HandlePrecognitiveRequests::class])->name('item.rate');
+    Route::get('rating/list/{item}', [RatingController::class, 'load'])->name('item.ratings.list');
 
 });
 
