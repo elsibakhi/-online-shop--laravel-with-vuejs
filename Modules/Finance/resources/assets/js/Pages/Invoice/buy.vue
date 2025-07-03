@@ -3,7 +3,7 @@
       <Card class="max-w-4xl mx-auto shadow-xl rounded-2xl">
         <CardHeader  >
           <div class="flex justify-between">
-            <Link :href="route('dashboard')" >
+            <Link :href="(previousLink=='')?route('dashboard'):previousLink" >
         <ShadcnButton  variant="outline" class="w-20 group">
                        
                        {{ t('invoice.back') }}
@@ -106,9 +106,9 @@ import { Download, Undo2 } from 'lucide-vue-next';
 import { Link } from '@inertiajs/vue3';
 import { downloadInvoice } from '@/actions/Modules/Finance/Http/Controllers/InvoiceController';
   const { t } = useI18n();
-  
+ 
 const props = defineProps(['transaction']);
-  
+  const previousLink = ref(document.referrer);
   const transaction = ref(props.transaction.data);
 
   const items = ref(transaction.value.items);

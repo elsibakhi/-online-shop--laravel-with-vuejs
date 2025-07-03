@@ -186,10 +186,14 @@ const selectImage = (path:string):void => {
       <div v-if="!isThisUserisTheOwnerOfItem" class="w-full ">
 
         <template v-if="item.priceable_type=='normal'">
-            <AddToCartButton :itemId="item.id"/>
+        <div class="flex justify-between gap-2">
+
+          <AddToCartButton :itemId="item.id"/>
           <Link :href="buyNow(item.id).url" class="flex-1">
             <Button variant="default" >{{$t('Buy Now')}}</Button>
           </Link>
+          
+        </div>
         </template>
 
         <template v-if="item.priceable_type=='auction' && item.priceable.status=='started'">

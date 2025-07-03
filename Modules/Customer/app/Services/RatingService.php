@@ -28,7 +28,8 @@ class RatingService
 
     }
 
-    public function loadForItem(int $itemId){
-          return  RatingResource::collection($this->ratingRepository->getRatingsAsPageForAnItem($itemId));
+    public function loadForItem(int $itemId)
+    {
+        return RatingResource::collection($this->ratingRepository->getRatingsAsPageForAnItem($itemId));
     }
 }

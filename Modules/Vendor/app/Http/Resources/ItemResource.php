@@ -14,10 +14,8 @@ class ItemResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-       
-         
 
-         return [
+        return [
             'id' => $this->id,
             'title' => $this->title,
             'status' => $this->status,

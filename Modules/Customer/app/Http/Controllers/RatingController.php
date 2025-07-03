@@ -45,7 +45,7 @@ class RatingController extends Controller
     public function load($item)
     {
         return $this->ratingService->loadForItem($item);
-       
+
     }
 
     /**

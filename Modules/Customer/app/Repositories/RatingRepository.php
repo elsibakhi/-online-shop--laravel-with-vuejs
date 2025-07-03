@@ -9,7 +9,8 @@ class RatingRepository
 {
     public function __construct(protected Rating $ratingModel) {}
 
-    public function getRatingsAsPageForAnItem(int $itemId,int $ratingsInPage=10){
-       return Item::findOrFail($itemId)->ratings()->latest()->paginate($ratingsInPage);
+    public function getRatingsAsPageForAnItem(int $itemId, int $ratingsInPage = 10)
+    {
+        return Item::findOrFail($itemId)->ratings()->latest()->paginate($ratingsInPage);
     }
 }
