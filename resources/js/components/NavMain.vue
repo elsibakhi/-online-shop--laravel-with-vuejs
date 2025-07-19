@@ -14,7 +14,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from '@/components/ui/sidebar'
-import { Link } from '@inertiajs/vue3';
+import { Link, usePage } from '@inertiajs/vue3';
 import { ChevronRight, type LucideIcon } from 'lucide-vue-next'
 import { RouteParams } from '../../../vendor/tightenco/ziggy/src/js';
 
@@ -22,15 +22,29 @@ defineProps<{
   items: {
     title: string
     url: string
+  
     icon?: LucideIcon
+    role?: string
     isActive?: boolean
     items?: {
+      role?: string
       title: string
       url: string
       params?: RouteParams<string>
     }[]
   }[]
 }>()
+
+const page = usePage();
+const user = page.props.auth.user;
+
+function hasRole(role?:string){
+  if(role){
+   return user.role==role;
+  }
+  return true;
+}
+console.log(user)
 </script>
 
 <template>
@@ -44,7 +58,7 @@ defineProps<{
         :default-open="item.isActive"
         class="group/collapsible"
       >
-        <SidebarMenuItem>
+        <SidebarMenuItem v-if="hasRole(item.role)">
           <CollapsibleTrigger as-child>
             <SidebarMenuButton :tooltip="item.title">
               <component :is="item.icon" v-if="item.icon" />
@@ -54,8 +68,9 @@ defineProps<{
           </CollapsibleTrigger>
           <CollapsibleContent>
             <SidebarMenuSub>
-              <SidebarMenuSubItem v-for="subItem in item.items" :key="subItem.title">
-                <SidebarMenuSubButton as-child>
+              <SidebarMenuSubItem v-for="subItem in item.items" :key="subItem.title" >
+               
+                <SidebarMenuSubButton as-child v-if="hasRole(subItem.role)">
                   <Link :href="route(subItem.url,subItem.params)">
                     {{ subItem.title }}
                   </Link>

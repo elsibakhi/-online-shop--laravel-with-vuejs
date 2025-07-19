@@ -110,6 +110,12 @@ class User extends Authenticatable
             ->sum('amount');
     }
 
+
+    public function hasRole(string $role){
+            return $this->role===$role;
+    }
+
+
     public function items()
     {
         return $this->hasMany(Item::class);

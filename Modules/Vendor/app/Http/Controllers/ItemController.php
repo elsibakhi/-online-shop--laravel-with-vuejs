@@ -8,12 +8,28 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Modules\Vendor\Http\Requests\ItemRequest;
 use Modules\Vendor\Services\ItemService;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
+class ItemController extends Controller  implements HasMiddleware
 
-class ItemController extends Controller
 {
     //
 
-    public function __construct(protected ItemService $itemService) {}
+    public function __construct(protected ItemService $itemService) {
+      
+    }
+
+        /**
+     * Get the middleware that should be assigned to the controller.
+     */
+    public static function middleware(): array
+    {
+        return [
+           
+            new Middleware('hasRole:vendor', only: ['loadItems','store','edit','update','destroy']),
+           
+        ];
+    }
 
     /**
      * index
@@ -28,8 +44,8 @@ class ItemController extends Controller
             $loading = $request->query('loading');
             $data = compact(['loading']);
         } else {
-
-            $data = $this->itemService->index();
+            abort_unless($request->user()->hasRole('vendor'),403,'This Action Not Authorized');
+           $data = $this->itemService->index();
         }
 
         return Inertia::render('Vendor::Item/index', $data);

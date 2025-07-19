@@ -2,7 +2,7 @@ import { queryParams, type QueryParams } from './../../../wayfinder'
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::status
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:141
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:157
 * @route '/item/{id}/change-status'
 */
 export const status = (args: { id: string | number } | [id: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -20,7 +20,7 @@ status.definition = {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::status
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:141
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:157
 * @route '/item/{id}/change-status'
 */
 status.url = (args: { id: string | number } | [id: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -45,7 +45,7 @@ status.url = (args: { id: string | number } | [id: string | number ] | string | 
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::status
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:141
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:157
 * @route '/item/{id}/change-status'
 */
 status.post = (args: { id: string | number } | [id: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {

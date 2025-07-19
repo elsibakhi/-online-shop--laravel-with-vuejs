@@ -2,7 +2,7 @@ import { queryParams, type QueryParams } from './../../../wayfinder'
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::all
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:56
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:72
 * @route '/item/load/all'
 */
 export const all = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -20,7 +20,7 @@ all.definition = {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::all
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:56
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:72
 * @route '/item/load/all'
 */
 all.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -29,7 +29,7 @@ all.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::all
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:56
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:72
 * @route '/item/load/all'
 */
 all.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -42,7 +42,7 @@ all.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::all
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:56
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:72
 * @route '/item/load/all'
 */
 all.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {

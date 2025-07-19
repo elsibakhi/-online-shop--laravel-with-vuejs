@@ -61,7 +61,7 @@ rate.post = (args: { item: string | number } | [item: string | number ] | string
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::load
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:43
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:59
 * @route '/item/load'
 */
 export const load = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -79,7 +79,7 @@ load.definition = {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::load
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:43
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:59
 * @route '/item/load'
 */
 load.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -88,7 +88,7 @@ load.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::load
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:43
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:59
 * @route '/item/load'
 */
 load.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -101,7 +101,7 @@ load.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::load
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:43
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:59
 * @route '/item/load'
 */
 load.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -114,7 +114,7 @@ load.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::search
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:133
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:149
 * @route '/item/search'
 */
 export const search = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -132,7 +132,7 @@ search.definition = {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::search
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:133
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:149
 * @route '/item/search'
 */
 search.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -141,7 +141,7 @@ search.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::search
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:133
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:149
 * @route '/item/search'
 */
 search.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -154,7 +154,7 @@ search.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::search
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:133
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:149
 * @route '/item/search'
 */
 search.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -167,7 +167,7 @@ search.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::index
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:23
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:39
 * @route '/item'
 */
 export const index = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -185,7 +185,7 @@ index.definition = {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::index
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:23
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:39
 * @route '/item'
 */
 index.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -194,7 +194,7 @@ index.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::index
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:23
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:39
 * @route '/item'
 */
 index.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -207,7 +207,7 @@ index.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::index
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:23
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:39
 * @route '/item'
 */
 index.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -220,7 +220,7 @@ index.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::store
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:83
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:99
 * @route '/item'
 */
 export const store = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -238,7 +238,7 @@ store.definition = {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::store
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:83
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:99
 * @route '/item'
 */
 store.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -247,7 +247,7 @@ store.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::store
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:83
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:99
 * @route '/item'
 */
 store.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -260,7 +260,7 @@ store.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::edit
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:97
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:113
 * @route '/item/{item}/edit'
 */
 export const edit = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -278,7 +278,7 @@ edit.definition = {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::edit
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:97
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:113
 * @route '/item/{item}/edit'
 */
 edit.url = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -303,7 +303,7 @@ edit.url = (args: { item: string | number } | [item: string | number ] | string 
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::edit
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:97
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:113
 * @route '/item/{item}/edit'
 */
 edit.get = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -316,7 +316,7 @@ edit.get = (args: { item: string | number } | [item: string | number ] | string 
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::edit
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:97
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:113
 * @route '/item/{item}/edit'
 */
 edit.head = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -329,7 +329,7 @@ edit.head = (args: { item: string | number } | [item: string | number ] | string
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::update
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:111
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:127
 * @route '/item/{item}'
 */
 export const update = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -347,7 +347,7 @@ update.definition = {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::update
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:111
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:127
 * @route '/item/{item}'
 */
 update.url = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -372,7 +372,7 @@ update.url = (args: { item: string | number } | [item: string | number ] | strin
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::update
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:111
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:127
 * @route '/item/{item}'
 */
 update.put = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -385,7 +385,7 @@ update.put = (args: { item: string | number } | [item: string | number ] | strin
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::update
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:111
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:127
 * @route '/item/{item}'
 */
 update.patch = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -398,7 +398,7 @@ update.patch = (args: { item: string | number } | [item: string | number ] | str
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::destroy
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:125
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:141
 * @route '/item/{item}'
 */
 export const destroy = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -416,7 +416,7 @@ destroy.definition = {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::destroy
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:125
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:141
 * @route '/item/{item}'
 */
 destroy.url = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -441,7 +441,7 @@ destroy.url = (args: { item: string | number } | [item: string | number ] | stri
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::destroy
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:125
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:141
 * @route '/item/{item}'
 */
 destroy.delete = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -454,7 +454,7 @@ destroy.delete = (args: { item: string | number } | [item: string | number ] | s
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::show
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:70
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:86
 * @route '/item/{item}'
 */
 export const show = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -472,7 +472,7 @@ show.definition = {
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::show
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:70
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:86
 * @route '/item/{item}'
 */
 show.url = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -497,7 +497,7 @@ show.url = (args: { item: string | number } | [item: string | number ] | string 
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::show
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:70
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:86
 * @route '/item/{item}'
 */
 show.get = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -510,7 +510,7 @@ show.get = (args: { item: string | number } | [item: string | number ] | string 
 
 /**
 * @see \Modules\Vendor\Http\Controllers\ItemController::show
-* @see Modules/Vendor/app/Http/Controllers/ItemController.php:70
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:86
 * @route '/item/{item}'
 */
 show.head = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {

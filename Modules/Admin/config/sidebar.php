@@ -1,11 +1,13 @@
 <?php
 
+ 
 return [
 
     [
         'id' => 'category',
         'title' => __('Categories'),
         'url' => '#',
+         'role'=>'admin',
         'isActive' => false,
         'items' => [
 
@@ -25,6 +27,7 @@ return [
         'id' => 'tag',
         'title' => __('Tags'),
         'url' => '#',
+        'role'=>'admin',
         'isActive' => false,
         'items' => [
             [

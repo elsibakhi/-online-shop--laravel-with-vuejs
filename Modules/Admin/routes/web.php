@@ -7,7 +7,7 @@ use Modules\Admin\Http\Controllers\SubCategoryController;
 use Modules\Admin\Http\Controllers\TagController;
 use Modules\Vendor\Http\Controllers\ItemController;
 
-Route::middleware(['auth', 'verified'])->group(function (): void {
+Route::middleware(['auth', 'verified','hasRole:admin'])->group(function (): void {
     Route::resource('admin', AdminController::class)->names('admin');
     Route::resource('category', CategoryController::class);
     Route::post('tag/multi/store', [TagController::class, 'storeMany'])->name('tag.store.multi');
