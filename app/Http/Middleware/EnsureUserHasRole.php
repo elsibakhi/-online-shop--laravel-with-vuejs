@@ -15,9 +15,9 @@ class EnsureUserHasRole
      */
     public function handle(Request $request, Closure $next, string $role): Response
     {
-        
-            abort_unless($request->user()->hasRole($role),403,'This Action Not Authorized');
-        
+
+        abort_unless($request->user()->hasRole($role), 403, 'This Action Not Authorized');
+
         return $next($request);
     }
 }

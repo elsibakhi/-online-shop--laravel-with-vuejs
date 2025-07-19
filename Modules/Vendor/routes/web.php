@@ -6,11 +6,11 @@ use Modules\Vendor\Http\Controllers\ItemController;
 Route::middleware(['auth', 'verified'])->group(function (): void {
 
     Route::get('item/load', [ItemController::class, 'loadItems'])->name('item.load');
-    
+
     Route::get('item/search', [ItemController::class, 'search'])->name('item.search');
-    
+
     Route::get('item/load/all', [ItemController::class, 'loadAllItems'])->name('item.load.all');
-    
+
     Route::resource('item', ItemController::class)->except(['create', 'show']);
 });
 

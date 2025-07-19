@@ -114,7 +114,7 @@ function getFormattedNotification(notification: any,broadcasted?:boolean): Forma
 
     case 'Modules\\Customer\\Notifications\\UserCommentOnPost':
 
-    formattedNotification.message = `${data.replier.name} replied on your ${data.post.type == 'post' ? 'post' : 'comment'} ${data.post.content.slice(0, 50)}`
+    formattedNotification.message = `${data.replier.name} replied on your ${data.post.type == 'post' ? 'post' : 'comment'}.`
     formattedNotification.route = show(data.post.id).url+`?notification=${notification.id}`;
 
 
@@ -122,14 +122,14 @@ function getFormattedNotification(notification: any,broadcasted?:boolean): Forma
       break;
     case 'Modules\\Customer\\Notifications\\UserLikePost':
 
-    formattedNotification.message = `${data.user.name} liked your ${data.post.type == 'post' ? 'post' : 'comment'} ${data.post.content.slice(0, 50)}`
+    formattedNotification.message = `${data.user.name} liked your ${data.post.type == 'post' ? 'post' : 'comment'}. `
     formattedNotification.route = show(data.post.id).url+`?notification=${notification.id}`;
 
       break;
 
     case 'Modules\\Customer\\Notifications\\UserMentionUser':
 
-    formattedNotification.message = `${data.user.name} mention you in a ${data.post.type == 'post' ? 'post' : 'comment'} ${data.post.content.slice(0, 50)}`
+    formattedNotification.message = `${data.user.name} mention you in a ${data.post.type == 'post' ? 'post' : 'comment'}.`
     formattedNotification.route = show(data.post.id).url+`?notification=${notification.id}`;
     
     break;

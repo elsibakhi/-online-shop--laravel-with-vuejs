@@ -11,7 +11,7 @@ return [
 
             [
                 'title' => __('My Items'),
-                'role'=>'vendor',
+                'role' => 'vendor',
                 'url' => 'item.index',
 
             ],
