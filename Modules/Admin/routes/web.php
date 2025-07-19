@@ -5,6 +5,7 @@ use Modules\Admin\Http\Controllers\AdminController;
 use Modules\Admin\Http\Controllers\CategoryController;
 use Modules\Admin\Http\Controllers\SubCategoryController;
 use Modules\Admin\Http\Controllers\TagController;
+use Modules\Vendor\Http\Controllers\ItemController;
 
 Route::middleware(['auth', 'verified'])->group(function (): void {
     Route::resource('admin', AdminController::class)->names('admin');
@@ -13,4 +14,6 @@ Route::middleware(['auth', 'verified'])->group(function (): void {
     Route::delete('tag/multi/delete', [TagController::class, 'destroyMany'])->name('tag.delete.multi');
     Route::resource('tag', TagController::class);
     Route::resource('subcategory', SubCategoryController::class);
+    Route::post('item/{id}/change-status', [ItemController::class, 'changeStatus'])
+        ->name('item.change.status');
 });

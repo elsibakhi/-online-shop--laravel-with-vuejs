@@ -1,6 +1,62 @@
 import { queryParams, type QueryParams } from './../../../../../wayfinder'
 
 /**
+* @see \Modules\Vendor\Http\Controllers\ItemController::changeStatus
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:141
+* @route '/item/{id}/change-status'
+*/
+export const changeStatus = (args: { id: string | number } | [id: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'post',
+} => ({
+    url: changeStatus.url(args, options),
+    method: 'post',
+})
+
+changeStatus.definition = {
+    methods: ['post'],
+    url: '/item/{id}/change-status',
+}
+
+/**
+* @see \Modules\Vendor\Http\Controllers\ItemController::changeStatus
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:141
+* @route '/item/{id}/change-status'
+*/
+changeStatus.url = (args: { id: string | number } | [id: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { id: args }
+    }
+
+    if (Array.isArray(args)) {
+        args = {
+            id: args[0],
+        }
+    }
+
+    const parsedArgs = {
+        id: args.id,
+    }
+
+    return changeStatus.definition.url
+            .replace('{id}', parsedArgs.id.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \Modules\Vendor\Http\Controllers\ItemController::changeStatus
+* @see Modules/Vendor/app/Http/Controllers/ItemController.php:141
+* @route '/item/{id}/change-status'
+*/
+changeStatus.post = (args: { id: string | number } | [id: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'post',
+} => ({
+    url: changeStatus.url(args, options),
+    method: 'post',
+})
+
+/**
 * @see \Modules\Vendor\Http\Controllers\ItemController::loadItems
 * @see Modules/Vendor/app/Http/Controllers/ItemController.php:43
 * @route '/item/load'
@@ -515,6 +571,6 @@ show.head = (args: { item: string | number } | [item: string | number ] | string
     method: 'head',
 })
 
-const ItemController = { loadItems, loadAllItems, search, index, store, edit, update, destroy, show }
+const ItemController = { changeStatus, loadItems, loadAllItems, search, index, store, edit, update, destroy, show }
 
 export default ItemController

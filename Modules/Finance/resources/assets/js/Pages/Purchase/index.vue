@@ -32,9 +32,9 @@ watch(() => props.transactions, (newTransactions) => {
 
 <template>
 
-  <Head :title="$t('View All Purchase Transactions')" />
+  <Head :title="$t('purchase.view_all')" />
 
-  <AuthenticatedLayout :breadcrumb-titles="[{ title: $t('Purchase Transactions') },]">
+  <AuthenticatedLayout :breadcrumb-titles="[{ title: $t('purchase.transactions') },]">
 
 
     <div class="py-10 mx-20 container-fluid ">

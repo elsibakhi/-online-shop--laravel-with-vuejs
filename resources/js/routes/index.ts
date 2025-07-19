@@ -175,7 +175,7 @@ home.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \App\Http\Controllers\Auth\RegisteredUserController::register
-* @see app/Http/Controllers/Auth/RegisteredUserController.php:22
+* @see app/Http/Controllers/Auth/RegisteredUserController.php:25
 * @route '/register'
 */
 export const register = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -193,7 +193,7 @@ register.definition = {
 
 /**
 * @see \App\Http\Controllers\Auth\RegisteredUserController::register
-* @see app/Http/Controllers/Auth/RegisteredUserController.php:22
+* @see app/Http/Controllers/Auth/RegisteredUserController.php:25
 * @route '/register'
 */
 register.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -202,7 +202,7 @@ register.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => 
 
 /**
 * @see \App\Http\Controllers\Auth\RegisteredUserController::register
-* @see app/Http/Controllers/Auth/RegisteredUserController.php:22
+* @see app/Http/Controllers/Auth/RegisteredUserController.php:25
 * @route '/register'
 */
 register.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -215,7 +215,7 @@ register.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \App\Http\Controllers\Auth\RegisteredUserController::register
-* @see app/Http/Controllers/Auth/RegisteredUserController.php:22
+* @see app/Http/Controllers/Auth/RegisteredUserController.php:25
 * @route '/register'
 */
 register.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -228,7 +228,7 @@ register.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \App\Http\Controllers\Auth\AuthenticatedSessionController::login
-* @see app/Http/Controllers/Auth/AuthenticatedSessionController.php:20
+* @see app/Http/Controllers/Auth/AuthenticatedSessionController.php:25
 * @route '/login'
 */
 export const login = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -246,7 +246,7 @@ login.definition = {
 
 /**
 * @see \App\Http\Controllers\Auth\AuthenticatedSessionController::login
-* @see app/Http/Controllers/Auth/AuthenticatedSessionController.php:20
+* @see app/Http/Controllers/Auth/AuthenticatedSessionController.php:25
 * @route '/login'
 */
 login.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -255,7 +255,7 @@ login.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
 * @see \App\Http\Controllers\Auth\AuthenticatedSessionController::login
-* @see app/Http/Controllers/Auth/AuthenticatedSessionController.php:20
+* @see app/Http/Controllers/Auth/AuthenticatedSessionController.php:25
 * @route '/login'
 */
 login.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -268,7 +268,7 @@ login.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \App\Http\Controllers\Auth\AuthenticatedSessionController::login
-* @see app/Http/Controllers/Auth/AuthenticatedSessionController.php:20
+* @see app/Http/Controllers/Auth/AuthenticatedSessionController.php:25
 * @route '/login'
 */
 login.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -281,7 +281,7 @@ login.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \App\Http\Controllers\Auth\AuthenticatedSessionController::logout
-* @see app/Http/Controllers/Auth/AuthenticatedSessionController.php:47
+* @see app/Http/Controllers/Auth/AuthenticatedSessionController.php:52
 * @route '/logout'
 */
 export const logout = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -299,7 +299,7 @@ logout.definition = {
 
 /**
 * @see \App\Http\Controllers\Auth\AuthenticatedSessionController::logout
-* @see app/Http/Controllers/Auth/AuthenticatedSessionController.php:47
+* @see app/Http/Controllers/Auth/AuthenticatedSessionController.php:52
 * @route '/logout'
 */
 logout.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -308,7 +308,7 @@ logout.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
 * @see \App\Http\Controllers\Auth\AuthenticatedSessionController::logout
-* @see app/Http/Controllers/Auth/AuthenticatedSessionController.php:47
+* @see app/Http/Controllers/Auth/AuthenticatedSessionController.php:52
 * @route '/logout'
 */
 logout.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {

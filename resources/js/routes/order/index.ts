@@ -5,7 +5,7 @@ import { queryParams, type QueryParams } from './../../wayfinder'
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::buyNow
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:20
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:22
 * @route '/order/buy-now/{item}'
 */
 export const buyNow = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -23,7 +23,7 @@ buyNow.definition = {
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::buyNow
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:20
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:22
 * @route '/order/buy-now/{item}'
 */
 buyNow.url = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -48,7 +48,7 @@ buyNow.url = (args: { item: string | number } | [item: string | number ] | strin
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::buyNow
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:20
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:22
 * @route '/order/buy-now/{item}'
 */
 buyNow.get = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -61,7 +61,7 @@ buyNow.get = (args: { item: string | number } | [item: string | number ] | strin
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::buyNow
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:20
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:22
 * @route '/order/buy-now/{item}'
 */
 buyNow.head = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {

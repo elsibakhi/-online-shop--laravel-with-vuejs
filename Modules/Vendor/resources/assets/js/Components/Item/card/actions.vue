@@ -11,7 +11,7 @@ import {useEdit} from '@/Composables/actions/edit';
 
 import { MoreHorizontal } from 'lucide-vue-next'
 import { inject,ref } from "vue";
-import { useToast } from "primevue/usetoast";
+
 import Toast from 'primevue/toast';
 import { useI18n } from 'vue-i18n';
 import { useItemStore } from '@vendor/js/Stores/Item';
@@ -19,10 +19,11 @@ import { Button } from 'primevue';
 import ItemController from '@/actions/Modules/Vendor/Http/Controllers/ItemController';
 import { Item } from '@vendor/js/types/Item';
 import axios from 'axios';
-import { usePage } from '@inertiajs/vue3';
+import { router, usePage } from '@inertiajs/vue3';
+import { useToast } from '@/components/ui/toast';
 
 const {t} = useI18n();
-
+const {toast} = useToast();
 const page = usePage();
 const emit = defineEmits(['rateItem','showItemRatings'])
 
@@ -36,9 +37,7 @@ const form = itemStore.formModal;
 
 const items = ref();
 
-
-if(page.props.auth.user?.id == props.item.user_id){
-  items.value=[
+const ownerActions =[
     {
         label: t('Edit'),
         command: () => {
@@ -55,7 +54,50 @@ if(page.props.auth.user?.id == props.item.user_id){
     }
 
 ]
-}else{
+
+
+
+ if(page.props.auth.user.role=='admin'){
+
+
+ 
+const adminActions = ownerActions;
+
+if(props.item.status == "available"){
+adminActions.push({
+      label: t('Make Unavailable'),
+      command: () => {
+        changeStatus('unavailable')
+      }
+  })
+  adminActions.push({
+     label: t('Suspend'),
+      command: () => {
+        changeStatus('suspended')
+      }
+  })
+}
+
+else{
+adminActions.push({
+      label: t('Make Available'),
+      command: () => {
+        changeStatus('available')
+      }
+  })
+
+
+
+}
+items.value = adminActions
+
+}
+else if(page.props.auth.user?.id == props.item.user_id){
+  items.value=ownerActions;
+}
+
+
+else{
   items.value=[
     {
         label: t('Rate'),
@@ -79,7 +121,29 @@ items.value.push({
 
 
 
+function changeStatus(status: string) {
 
+
+    axios.post(route('item.change.status', props.item.id), { status })
+        .then(() => {
+         
+          router.visit(route('item.index')+'?loading=all', {
+           
+            onSuccess: () => {
+              // Show success toast
+              toast({title: t('Success'), description: t('Item status changed successfully')});
+            },
+          });
+        
+            
+          
+            
+            
+        })
+        .catch(error => {
+            toast({title: t('Error'), description: t('Failed to change item status')});
+        });
+}
 
 
 const onPreview = async () => {

@@ -18,7 +18,7 @@ class RatingService
         $user = auth()->user();
         $hasRatingOnThisItem = $user->whereHas('ratings', function (Builder $query) use ($item) {
             $query->where('item_id', $item);
-        });
+        })->exists();
 
         if ($hasRatingOnThisItem) {
             throw ValidationException::withMessages(['error', 'You can\'t rate the item twice']);

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head, usePage } from '@inertiajs/vue3';
+import { Head, router, usePage } from '@inertiajs/vue3';
 import Stepper from '@/components/form/stepper.vue';
 import { Item } from '@vendor/js/types/Item';
 import { getSteps } from '@vendor/js/Data/Item/form/steps';
@@ -117,7 +117,6 @@ const childCoponentsProps =ref({
 
 
 
-
 </script>
 
 <template>
@@ -148,7 +147,7 @@ const childCoponentsProps =ref({
       <DataView  v-bind="childCoponentsProps.DataView"  >
             <template #btns="{item,reset}"  >
                   
-                    <Actions :item="item" :reset="reset" @rate-item="rateItem(item)"  @show-item-ratings="showItemRatings(item)" />
+                    <Actions :item="item" :reset="reset" @rate-item="rateItem(item)"  @show-item-ratings="showItemRatings(item)"  />
                     
             </template>
       </DataView>

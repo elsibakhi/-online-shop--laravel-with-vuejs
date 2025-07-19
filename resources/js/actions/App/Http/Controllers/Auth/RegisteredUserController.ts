@@ -2,7 +2,7 @@ import { queryParams, type QueryParams } from './../../../../../wayfinder'
 
 /**
 * @see \App\Http\Controllers\Auth\RegisteredUserController::create
-* @see app/Http/Controllers/Auth/RegisteredUserController.php:22
+* @see app/Http/Controllers/Auth/RegisteredUserController.php:25
 * @route '/register'
 */
 export const create = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -20,7 +20,7 @@ create.definition = {
 
 /**
 * @see \App\Http\Controllers\Auth\RegisteredUserController::create
-* @see app/Http/Controllers/Auth/RegisteredUserController.php:22
+* @see app/Http/Controllers/Auth/RegisteredUserController.php:25
 * @route '/register'
 */
 create.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -29,7 +29,7 @@ create.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
 * @see \App\Http\Controllers\Auth\RegisteredUserController::create
-* @see app/Http/Controllers/Auth/RegisteredUserController.php:22
+* @see app/Http/Controllers/Auth/RegisteredUserController.php:25
 * @route '/register'
 */
 create.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -42,7 +42,7 @@ create.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \App\Http\Controllers\Auth\RegisteredUserController::create
-* @see app/Http/Controllers/Auth/RegisteredUserController.php:22
+* @see app/Http/Controllers/Auth/RegisteredUserController.php:25
 * @route '/register'
 */
 create.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -55,7 +55,7 @@ create.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \App\Http\Controllers\Auth\RegisteredUserController::store
-* @see app/Http/Controllers/Auth/RegisteredUserController.php:32
+* @see app/Http/Controllers/Auth/RegisteredUserController.php:35
 * @route '/register'
 */
 export const store = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -73,7 +73,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\Auth\RegisteredUserController::store
-* @see app/Http/Controllers/Auth/RegisteredUserController.php:32
+* @see app/Http/Controllers/Auth/RegisteredUserController.php:35
 * @route '/register'
 */
 store.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -82,7 +82,7 @@ store.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
 * @see \App\Http\Controllers\Auth\RegisteredUserController::store
-* @see app/Http/Controllers/Auth/RegisteredUserController.php:32
+* @see app/Http/Controllers/Auth/RegisteredUserController.php:35
 * @route '/register'
 */
 store.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {

@@ -2,7 +2,7 @@ import { queryParams, type QueryParams } from './../../../wayfinder'
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::checkoutPage
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:28
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:30
 * @route '/order/stripe/checkout/page'
 */
 export const checkoutPage = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -20,7 +20,7 @@ checkoutPage.definition = {
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::checkoutPage
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:28
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:30
 * @route '/order/stripe/checkout/page'
 */
 checkoutPage.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -29,7 +29,7 @@ checkoutPage.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams })
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::checkoutPage
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:28
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:30
 * @route '/order/stripe/checkout/page'
 */
 checkoutPage.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -42,7 +42,7 @@ checkoutPage.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams })
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::checkoutPage
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:28
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:30
 * @route '/order/stripe/checkout/page'
 */
 checkoutPage.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -54,8 +54,101 @@ checkoutPage.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }
 })
 
 /**
+* @see \Modules\Finance\Http\Controllers\OrderController::checkoutSession
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:39
+* @route '/order/stripe/checkout/session'
+*/
+export const checkoutSession = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'post',
+} => ({
+    url: checkoutSession.url(options),
+    method: 'post',
+})
+
+checkoutSession.definition = {
+    methods: ['post'],
+    url: '/order/stripe/checkout/session',
+}
+
+/**
+* @see \Modules\Finance\Http\Controllers\OrderController::checkoutSession
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:39
+* @route '/order/stripe/checkout/session'
+*/
+checkoutSession.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
+    return checkoutSession.definition.url + queryParams(options)
+}
+
+/**
+* @see \Modules\Finance\Http\Controllers\OrderController::checkoutSession
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:39
+* @route '/order/stripe/checkout/session'
+*/
+checkoutSession.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'post',
+} => ({
+    url: checkoutSession.url(options),
+    method: 'post',
+})
+
+/**
+* @see \Modules\Finance\Http\Controllers\OrderController::checkoutReturn
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:48
+* @route '/order/stripe/checkout/return'
+*/
+export const checkoutReturn = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'get',
+} => ({
+    url: checkoutReturn.url(options),
+    method: 'get',
+})
+
+checkoutReturn.definition = {
+    methods: ['get','head'],
+    url: '/order/stripe/checkout/return',
+}
+
+/**
+* @see \Modules\Finance\Http\Controllers\OrderController::checkoutReturn
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:48
+* @route '/order/stripe/checkout/return'
+*/
+checkoutReturn.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
+    return checkoutReturn.definition.url + queryParams(options)
+}
+
+/**
+* @see \Modules\Finance\Http\Controllers\OrderController::checkoutReturn
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:48
+* @route '/order/stripe/checkout/return'
+*/
+checkoutReturn.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'get',
+} => ({
+    url: checkoutReturn.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Modules\Finance\Http\Controllers\OrderController::checkoutReturn
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:48
+* @route '/order/stripe/checkout/return'
+*/
+checkoutReturn.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'head',
+} => ({
+    url: checkoutReturn.url(options),
+    method: 'head',
+})
+
+/**
 * @see \Modules\Finance\Http\Controllers\OrderController::checkoutSuccess
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:37
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:59
 * @route '/order/stripe/checkout/success'
 */
 export const checkoutSuccess = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -73,7 +166,7 @@ checkoutSuccess.definition = {
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::checkoutSuccess
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:37
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:59
 * @route '/order/stripe/checkout/success'
 */
 checkoutSuccess.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -82,7 +175,7 @@ checkoutSuccess.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::checkoutSuccess
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:37
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:59
 * @route '/order/stripe/checkout/success'
 */
 checkoutSuccess.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -95,7 +188,7 @@ checkoutSuccess.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::checkoutSuccess
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:37
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:59
 * @route '/order/stripe/checkout/success'
 */
 checkoutSuccess.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -108,7 +201,7 @@ checkoutSuccess.head = (options?: { query?: QueryParams, mergeQuery?: QueryParam
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::checkoutCancel
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:47
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:69
 * @route '/order/stripe/checkout/cancel'
 */
 export const checkoutCancel = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -126,7 +219,7 @@ checkoutCancel.definition = {
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::checkoutCancel
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:47
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:69
 * @route '/order/stripe/checkout/cancel'
 */
 checkoutCancel.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -135,7 +228,7 @@ checkoutCancel.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams 
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::checkoutCancel
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:47
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:69
 * @route '/order/stripe/checkout/cancel'
 */
 checkoutCancel.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -148,7 +241,7 @@ checkoutCancel.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams 
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::checkoutCancel
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:47
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:69
 * @route '/order/stripe/checkout/cancel'
 */
 checkoutCancel.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -161,6 +254,8 @@ checkoutCancel.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams
 
 const stripe = {
     checkoutPage,
+    checkoutSession,
+    checkoutReturn,
     checkoutSuccess,
     checkoutCancel,
 }

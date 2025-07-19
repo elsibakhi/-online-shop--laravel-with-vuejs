@@ -109,7 +109,7 @@ window.Echo.private(`App.Models.User.${page.props.auth.user.id}`)
                 <div class="flex flex-wrap items-center gap-1.5 break-words text-sm text-muted-foreground sm:gap-2.5" v-for="(item, index) in breadcrumbTitles">
              <BreadcrumbItem class="hidden md:block" >
                         <BreadcrumbPage v-if="index+1==breadcrumbTitles?.length" >{{ item.title }}</BreadcrumbPage>
-                        <BreadcrumbLink v-else :href="item.href">{{ item.title }} ---- {{ message }} </BreadcrumbLink>
+                        <BreadcrumbLink v-else :href="item.href">{{ item.title }}</BreadcrumbLink>
                 
             </BreadcrumbItem>
             <BreadcrumbSeparator v-if="(index+1) < (breadcrumbTitles?.length)" class="hidden md:block" />

@@ -1,61 +1,8 @@
 import { queryParams, type QueryParams } from './../../../../../wayfinder'
 
 /**
-* @see \Modules\Finance\Http\Controllers\OrderController::getBalance
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:89
-* @route '/balance'
-*/
-export const getBalance = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
-    url: string,
-    method: 'get',
-} => ({
-    url: getBalance.url(options),
-    method: 'get',
-})
-
-getBalance.definition = {
-    methods: ['get','head'],
-    url: '/balance',
-}
-
-/**
-* @see \Modules\Finance\Http\Controllers\OrderController::getBalance
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:89
-* @route '/balance'
-*/
-getBalance.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
-    return getBalance.definition.url + queryParams(options)
-}
-
-/**
-* @see \Modules\Finance\Http\Controllers\OrderController::getBalance
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:89
-* @route '/balance'
-*/
-getBalance.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
-    url: string,
-    method: 'get',
-} => ({
-    url: getBalance.url(options),
-    method: 'get',
-})
-
-/**
-* @see \Modules\Finance\Http\Controllers\OrderController::getBalance
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:89
-* @route '/balance'
-*/
-getBalance.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
-    url: string,
-    method: 'head',
-} => ({
-    url: getBalance.url(options),
-    method: 'head',
-})
-
-/**
 * @see \Modules\Finance\Http\Controllers\OrderController::buyNow
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:20
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:22
 * @route '/order/buy-now/{item}'
 */
 export const buyNow = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -73,7 +20,7 @@ buyNow.definition = {
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::buyNow
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:20
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:22
 * @route '/order/buy-now/{item}'
 */
 buyNow.url = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -98,7 +45,7 @@ buyNow.url = (args: { item: string | number } | [item: string | number ] | strin
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::buyNow
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:20
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:22
 * @route '/order/buy-now/{item}'
 */
 buyNow.get = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -111,7 +58,7 @@ buyNow.get = (args: { item: string | number } | [item: string | number ] | strin
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::buyNow
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:20
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:22
 * @route '/order/buy-now/{item}'
 */
 buyNow.head = (args: { item: string | number } | [item: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -123,61 +70,154 @@ buyNow.head = (args: { item: string | number } | [item: string | number ] | stri
 })
 
 /**
-* @see \Modules\Finance\Http\Controllers\OrderController::buyNowFromStripeCheckoutPage
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:28
+* @see \Modules\Finance\Http\Controllers\OrderController::getStripeCheckoutPage
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:30
 * @route '/order/stripe/checkout/page'
 */
-export const buyNowFromStripeCheckoutPage = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+export const getStripeCheckoutPage = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
     url: string,
     method: 'get',
 } => ({
-    url: buyNowFromStripeCheckoutPage.url(options),
+    url: getStripeCheckoutPage.url(options),
     method: 'get',
 })
 
-buyNowFromStripeCheckoutPage.definition = {
+getStripeCheckoutPage.definition = {
     methods: ['get','head'],
     url: '/order/stripe/checkout/page',
 }
 
 /**
-* @see \Modules\Finance\Http\Controllers\OrderController::buyNowFromStripeCheckoutPage
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:28
+* @see \Modules\Finance\Http\Controllers\OrderController::getStripeCheckoutPage
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:30
 * @route '/order/stripe/checkout/page'
 */
-buyNowFromStripeCheckoutPage.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
-    return buyNowFromStripeCheckoutPage.definition.url + queryParams(options)
+getStripeCheckoutPage.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
+    return getStripeCheckoutPage.definition.url + queryParams(options)
 }
 
 /**
-* @see \Modules\Finance\Http\Controllers\OrderController::buyNowFromStripeCheckoutPage
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:28
+* @see \Modules\Finance\Http\Controllers\OrderController::getStripeCheckoutPage
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:30
 * @route '/order/stripe/checkout/page'
 */
-buyNowFromStripeCheckoutPage.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+getStripeCheckoutPage.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
     url: string,
     method: 'get',
 } => ({
-    url: buyNowFromStripeCheckoutPage.url(options),
+    url: getStripeCheckoutPage.url(options),
     method: 'get',
 })
 
 /**
-* @see \Modules\Finance\Http\Controllers\OrderController::buyNowFromStripeCheckoutPage
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:28
+* @see \Modules\Finance\Http\Controllers\OrderController::getStripeCheckoutPage
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:30
 * @route '/order/stripe/checkout/page'
 */
-buyNowFromStripeCheckoutPage.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+getStripeCheckoutPage.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
     url: string,
     method: 'head',
 } => ({
-    url: buyNowFromStripeCheckoutPage.url(options),
+    url: getStripeCheckoutPage.url(options),
+    method: 'head',
+})
+
+/**
+* @see \Modules\Finance\Http\Controllers\OrderController::createCheckoutSession
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:39
+* @route '/order/stripe/checkout/session'
+*/
+export const createCheckoutSession = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'post',
+} => ({
+    url: createCheckoutSession.url(options),
+    method: 'post',
+})
+
+createCheckoutSession.definition = {
+    methods: ['post'],
+    url: '/order/stripe/checkout/session',
+}
+
+/**
+* @see \Modules\Finance\Http\Controllers\OrderController::createCheckoutSession
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:39
+* @route '/order/stripe/checkout/session'
+*/
+createCheckoutSession.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
+    return createCheckoutSession.definition.url + queryParams(options)
+}
+
+/**
+* @see \Modules\Finance\Http\Controllers\OrderController::createCheckoutSession
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:39
+* @route '/order/stripe/checkout/session'
+*/
+createCheckoutSession.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'post',
+} => ({
+    url: createCheckoutSession.url(options),
+    method: 'post',
+})
+
+/**
+* @see \Modules\Finance\Http\Controllers\OrderController::returnFromCheckoutSession
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:48
+* @route '/order/stripe/checkout/return'
+*/
+export const returnFromCheckoutSession = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'get',
+} => ({
+    url: returnFromCheckoutSession.url(options),
+    method: 'get',
+})
+
+returnFromCheckoutSession.definition = {
+    methods: ['get','head'],
+    url: '/order/stripe/checkout/return',
+}
+
+/**
+* @see \Modules\Finance\Http\Controllers\OrderController::returnFromCheckoutSession
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:48
+* @route '/order/stripe/checkout/return'
+*/
+returnFromCheckoutSession.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
+    return returnFromCheckoutSession.definition.url + queryParams(options)
+}
+
+/**
+* @see \Modules\Finance\Http\Controllers\OrderController::returnFromCheckoutSession
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:48
+* @route '/order/stripe/checkout/return'
+*/
+returnFromCheckoutSession.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'get',
+} => ({
+    url: returnFromCheckoutSession.url(options),
+    method: 'get',
+})
+
+/**
+* @see \Modules\Finance\Http\Controllers\OrderController::returnFromCheckoutSession
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:48
+* @route '/order/stripe/checkout/return'
+*/
+returnFromCheckoutSession.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
+    url: string,
+    method: 'head',
+} => ({
+    url: returnFromCheckoutSession.url(options),
     method: 'head',
 })
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::buyNowFromStripeCheckoutSuccess
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:37
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:59
 * @route '/order/stripe/checkout/success'
 */
 export const buyNowFromStripeCheckoutSuccess = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -195,7 +235,7 @@ buyNowFromStripeCheckoutSuccess.definition = {
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::buyNowFromStripeCheckoutSuccess
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:37
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:59
 * @route '/order/stripe/checkout/success'
 */
 buyNowFromStripeCheckoutSuccess.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -204,7 +244,7 @@ buyNowFromStripeCheckoutSuccess.url = (options?: { query?: QueryParams, mergeQue
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::buyNowFromStripeCheckoutSuccess
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:37
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:59
 * @route '/order/stripe/checkout/success'
 */
 buyNowFromStripeCheckoutSuccess.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -217,7 +257,7 @@ buyNowFromStripeCheckoutSuccess.get = (options?: { query?: QueryParams, mergeQue
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::buyNowFromStripeCheckoutSuccess
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:37
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:59
 * @route '/order/stripe/checkout/success'
 */
 buyNowFromStripeCheckoutSuccess.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -230,7 +270,7 @@ buyNowFromStripeCheckoutSuccess.head = (options?: { query?: QueryParams, mergeQu
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::buyNowFromStripeCheckoutCancel
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:47
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:69
 * @route '/order/stripe/checkout/cancel'
 */
 export const buyNowFromStripeCheckoutCancel = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -248,7 +288,7 @@ buyNowFromStripeCheckoutCancel.definition = {
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::buyNowFromStripeCheckoutCancel
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:47
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:69
 * @route '/order/stripe/checkout/cancel'
 */
 buyNowFromStripeCheckoutCancel.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -257,7 +297,7 @@ buyNowFromStripeCheckoutCancel.url = (options?: { query?: QueryParams, mergeQuer
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::buyNowFromStripeCheckoutCancel
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:47
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:69
 * @route '/order/stripe/checkout/cancel'
 */
 buyNowFromStripeCheckoutCancel.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -270,7 +310,7 @@ buyNowFromStripeCheckoutCancel.get = (options?: { query?: QueryParams, mergeQuer
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::buyNowFromStripeCheckoutCancel
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:47
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:69
 * @route '/order/stripe/checkout/cancel'
 */
 buyNowFromStripeCheckoutCancel.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -283,7 +323,7 @@ buyNowFromStripeCheckoutCancel.head = (options?: { query?: QueryParams, mergeQue
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::buyNowFormBalance
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:57
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:79
 * @route '/order/buy-now/from-balance'
 */
 export const buyNowFormBalance = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -301,7 +341,7 @@ buyNowFormBalance.definition = {
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::buyNowFormBalance
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:57
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:79
 * @route '/order/buy-now/from-balance'
 */
 buyNowFormBalance.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -310,7 +350,7 @@ buyNowFormBalance.url = (options?: { query?: QueryParams, mergeQuery?: QueryPara
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::buyNowFormBalance
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:57
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:79
 * @route '/order/buy-now/from-balance'
 */
 buyNowFormBalance.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -323,7 +363,7 @@ buyNowFormBalance.post = (options?: { query?: QueryParams, mergeQuery?: QueryPar
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::CheckoutItemsCartFormBalance
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:75
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:97
 * @route '/order/checkout/cart/from-balance'
 */
 export const CheckoutItemsCartFormBalance = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -341,7 +381,7 @@ CheckoutItemsCartFormBalance.definition = {
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::CheckoutItemsCartFormBalance
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:75
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:97
 * @route '/order/checkout/cart/from-balance'
 */
 CheckoutItemsCartFormBalance.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -350,7 +390,7 @@ CheckoutItemsCartFormBalance.url = (options?: { query?: QueryParams, mergeQuery?
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::CheckoutItemsCartFormBalance
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:75
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:97
 * @route '/order/checkout/cart/from-balance'
 */
 CheckoutItemsCartFormBalance.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -361,6 +401,6 @@ CheckoutItemsCartFormBalance.post = (options?: { query?: QueryParams, mergeQuery
     method: 'post',
 })
 
-const OrderController = { getBalance, buyNow, buyNowFromStripeCheckoutPage, buyNowFromStripeCheckoutSuccess, buyNowFromStripeCheckoutCancel, buyNowFormBalance, CheckoutItemsCartFormBalance }
+const OrderController = { buyNow, getStripeCheckoutPage, createCheckoutSession, returnFromCheckoutSession, buyNowFromStripeCheckoutSuccess, buyNowFromStripeCheckoutCancel, buyNowFormBalance, CheckoutItemsCartFormBalance }
 
 export default OrderController

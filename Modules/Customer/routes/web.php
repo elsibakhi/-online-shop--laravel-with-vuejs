@@ -6,6 +6,7 @@ use Modules\Customer\Http\Controllers\CartController;
 use Modules\Customer\Http\Controllers\CustomerController;
 use Modules\Customer\Http\Controllers\PostController;
 use Modules\Customer\Http\Controllers\RatingController;
+use Modules\Finance\Http\Controllers\BidController;
 
 Route::middleware(['auth', 'verified'])->group(function (): void {
     Route::get('post/timeline', [PostController::class, 'timeline'])->name('post.timeline');
@@ -18,6 +19,10 @@ Route::middleware(['auth', 'verified'])->group(function (): void {
     // Rating
     Route::post('rate/{item}', [RatingController::class, 'store'])->middleware([HandlePrecognitiveRequests::class])->name('item.rate');
     Route::get('rating/list/{item}', [RatingController::class, 'load'])->name('item.ratings.list');
+
+    // bids
+    // this for show auction page
+    Route::get('auction/{auction}/bid', [BidController::class, 'show'])->name('auction.bid.show');
 
 });
 

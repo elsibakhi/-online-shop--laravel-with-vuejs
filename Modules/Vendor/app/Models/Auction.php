@@ -18,11 +18,12 @@ class Auction extends Model
 
     protected function userStart(): Attribute
     {
+        $user = auth()->user();
 
         return Attribute::make(
 
             get: fn () => Carbon::parse($this->start, 'UTC')
-                ->setTimezone(auth()->user()->profile->timezone)
+                ->setTimezone($user ? $user->profile->timezone : 'UTC')
                 ->toDateTimeString(),
 
         );
@@ -31,10 +32,12 @@ class Auction extends Model
     protected function userEnd(): Attribute
     {
 
+        $user = auth()->user();
+
         return Attribute::make(
 
             get: fn () => Carbon::parse($this->end, 'UTC')
-                ->setTimezone(auth()->user()->profile->timezone)
+                ->setTimezone($user ? $user->profile->timezone : 'UTC')
                 ->toDateTimeString(),
 
         );

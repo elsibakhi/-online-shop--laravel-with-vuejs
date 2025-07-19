@@ -85,11 +85,8 @@ switch (status) {
 <template>
 <div class="overflow-auto card" style="max-height: 80vh;" >
         
-  
-        <DataView v-for="(group,name) in groups" :value="group" :layout="layout">
-            <template #header>
-                <div class="flex justify-between px-4 py-2">
-                    <Chip >{{ name }}</Chip>
+    <div class="flex justify-end px-4 py-2">
+                  
                     <SelectButton v-model="layout" :options="options" :allowEmpty="false">
                         <template #option="{ option }">
                
@@ -98,15 +95,21 @@ switch (status) {
                         </template>
                     </SelectButton>
                 </div>
+        <DataView v-for="(group,name) in groups" :value="group" :layout="layout">
+            <template #header>
+                <div class="flex justify-start px-4 py-2">
+                    <Chip >{{ name }}</Chip>
+               
+                </div>
             </template>
             
-            <template #list="slotProps">
+            <template #list="slotProps" >
             
                
-                <div v-if="!loading||page>1"  class="flex flex-col ">
-                    <div v-for="(item, index) in slotProps.items" :key="index">
-                        <div class="flex flex-col gap-4 p-6 sm:flex-row sm:items-center " :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
-                            <div class="relative md:w-40">
+                <div v-if="!loading||page>1"  class="flex flex-col w-full">
+                    <div v-for="(item, index) in slotProps.items" :key="index" >
+                        <div class="flex flex-col gap-4 p-6 sm:flex-row sm:items-center" :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
+                            <div class="relative ">
                                 <img class="block w-full mx-auto rounded xl:block" :src="item.hasOwnProperty('image_path')?('storage/'+item.image_path):defaultImage" :alt="item.title" />
                                  <div class="absolute dark:bg-black/70 rounded-border" style="left: 4px; top: 4px">
                                     <Tag :value="$ucfirst($t(item.status))" :severity="getSeverity(item.status)"></Tag>

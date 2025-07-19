@@ -20,7 +20,7 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 
-
+import { router} from '@inertiajs/vue3';
 import { Input } from '@/components/ui/input'
 
 import { defineProps,ref, watch, watchEffect, } from 'vue'
@@ -87,9 +87,14 @@ const onSubmit = () => form.value.submit({
 preserveScroll: true,
 
 onSuccess: () => {
-    isOpen.value=false;
-    form.value.reset()
-    toast({title:"Your rating submitted successfully"})
+  router.visit(route('item.index')+'?loading=all', {
+           
+           onSuccess: () => {
+             // Show success toast
+             toast({title:"Your rating submitted successfully"})
+           },
+         });
+   
 },
 
 });

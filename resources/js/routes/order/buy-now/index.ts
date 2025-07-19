@@ -2,7 +2,7 @@ import { queryParams, type QueryParams } from './../../../wayfinder'
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::fromBalance
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:57
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:79
 * @route '/order/buy-now/from-balance'
 */
 export const fromBalance = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -20,7 +20,7 @@ fromBalance.definition = {
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::fromBalance
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:57
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:79
 * @route '/order/buy-now/from-balance'
 */
 fromBalance.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -29,7 +29,7 @@ fromBalance.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) 
 
 /**
 * @see \Modules\Finance\Http\Controllers\OrderController::fromBalance
-* @see Modules/Finance/app/Http/Controllers/OrderController.php:57
+* @see Modules/Finance/app/Http/Controllers/OrderController.php:79
 * @route '/order/buy-now/from-balance'
 */
 fromBalance.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {

@@ -36,7 +36,7 @@ class BuyFromBalanceAction
 
             if (count($items) > 0) {
                 $order = $user->orders()->create([
-                    'status' => 'completed',
+                    'status' => 'in_warehouse',
                 ]);
 
                 $order->items()->attach($items);

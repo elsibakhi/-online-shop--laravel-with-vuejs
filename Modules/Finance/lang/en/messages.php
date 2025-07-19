@@ -7,5 +7,10 @@ return [
         'deleted' => 'The Transaction Deleted Successfully',
 
     ],
+    'balance' => [
+
+        'charged' => 'Your balance charged successfully',
+
+    ],
 
 ];

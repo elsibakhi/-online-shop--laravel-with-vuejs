@@ -13,12 +13,16 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->enum('locale', ['en', 'ar'])->default('en');
-            $table->enum('timezone', DateTimeZone::listIdentifiers());
+            $table->string('locale')->default('en');
+            $table->char('countryCode', 5)->default('US');
+            $table->enum('timezone', DateTimeZone::listIdentifiers())->default('America/New_York');
             $table->string('avatar')->nullable();
             $table->string('phone')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
+            $table->string('city')->nullable();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('location_id')->nullable()->constrained()->nullOnDelete();
+
             $table->timestamps();
         });
     }

@@ -171,4 +171,9 @@ class ItemService
         $this->itemRepository->findOrFail($item)->ratings()->create($data);
 
     }
+
+    public function changeStatus(int $id, string $status): void
+    {
+        $this->itemRepository->changeStatus($id, $status);
+    }
 }

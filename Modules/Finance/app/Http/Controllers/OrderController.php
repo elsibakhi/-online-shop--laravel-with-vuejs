@@ -8,9 +8,11 @@ use Inertia\Inertia;
 use Modules\Customer\Services\CartService;
 use Modules\Finance\Actions\Order\BuyFromBalanceAction;
 use Modules\Finance\Actions\Order\CheckoutCartFormBalanceAction;
-use Modules\Finance\Actions\Order\GetBuyNowStripeCheckoutFromPageAction;
+use Modules\Finance\Actions\Order\CreateCheckoutSession;
 use Modules\Finance\Actions\Order\GetItemForBuyNowPageAction;
+use Modules\Finance\Actions\Order\GetStripeCheckoutPageAction;
 use Modules\Finance\Actions\Order\HandleCancelBuyNowFromStripeCheckoutAction;
+use Modules\Finance\Actions\Order\HandleReturnFromCheckoutSession;
 use Modules\Finance\Actions\Order\HandleSuccessBuyNowFromStripeCheckoutAction;
 use Modules\Finance\Http\Requests\BuyNowFromBalanceRequest;
 use Modules\Finance\Http\Requests\CheckoutFromCartRequest;
@@ -25,10 +27,30 @@ class OrderController extends Controller
         return Inertia::render('Finance::Order/buy-now', compact('item'));
     }
 
-    public function buyNowFromStripeCheckoutPage(BuyNowFromBalanceRequest $request, GetBuyNowStripeCheckoutFromPageAction $getBuyNowStripeCheckoutFromPageAction)
+    public function getStripeCheckoutPage(BuyNowFromBalanceRequest $request, GetStripeCheckoutPageAction $getStripeCheckoutPageAction)
     {
 
-        $response = $getBuyNowStripeCheckoutFromPageAction->execute($request->validated());
+        $response = $getStripeCheckoutPageAction->execute($request->validated(), route('order.stripe.checkout-session'));
+
+        return $response;
+
+    }
+
+    public function createCheckoutSession(BuyNowFromBalanceRequest $request, CreateCheckoutSession $createCheckoutSession)
+    {
+
+        $response = $createCheckoutSession->execute($request->validated());
+
+        return $response;
+
+    }
+
+    public function returnFromCheckoutSession(Request $request, HandleReturnFromCheckoutSession $handleReturnFromCheckoutSession)
+    {
+
+        $data = $request->all();
+
+        $response = $handleReturnFromCheckoutSession->execute($data);
 
         return $response;
 
@@ -99,37 +121,12 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function checkoutCartFromBalance(CheckoutFromCartRequest $request, CheckoutCartFormBalanceAction $checkoutCartFormBalanceAction)
-    {
+    // public function checkoutCartFromBalance(CheckoutFromCartRequest $request, CheckoutCartFormBalanceAction $checkoutCartFormBalanceAction)
+    // {
 
-        $response = $checkoutCartFormBalanceAction->execute($request->validated());
+    //     $response = $checkoutCartFormBalanceAction->execute($request->validated());
 
-        return $response;
-    }
+    //     return $response;
+    // }
 
-    /**
-     * Show the specified resource.
-     */
-    public function show($id)
-    {
-        return view('finance::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        return view('finance::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id) {}
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id) {}
 }

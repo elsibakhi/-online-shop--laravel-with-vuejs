@@ -58,7 +58,7 @@ class HandleSuccessBuyNowFromStripeCheckoutAction
 
             ]);
 
-            $transaction->load(['seller', 'buyer', 'order']);
+            $transaction->load(['buyer', 'order']);
 
             return $transaction;
         });

@@ -2,7 +2,7 @@
 
   <Card class="container p-4 mx-auto mt-10 space-y-6">
     <CardHeader>
-      <h1 class="mb-4 text-2xl font-bold">Auction #{{ auction.id }} — {{ auction.status }}</h1>
+      <h1 class="mb-4 text-2xl font-bold">{{$t('auction_bid.auction')}} #{{ auction.id }} — {{ auction.status }}</h1>
 
 
     </CardHeader>
@@ -13,12 +13,13 @@
 
 
 
-          <div class="mb-4">Current Price: <span class="font-semibold text-green-600">${{ currentPrice }}</span></div>
+          <div class="mb-4"> {{$t('auction_bid.current_price_label')}} <span class="font-semibold text-green-600">${{ currentPrice }}</span></div>
 
           <div class="p-4 mb-6 border rounded-lg shadow">
             <div class="flex items-start justify-between">
               <div>
-                <img :src="item.extensions[0]?.path?'/storage/' + item.extensions[0].path:defaultImage" alt="" class="object-cover w-32 h-32 rounded" />
+                <img :src="item.extensions[0]?.path ? '/storage/' + item.extensions[0].path : defaultImage" alt=""
+                  class="object-cover w-32 h-32 rounded" />
                 <h2 class="font-medium">{{ item.title }}</h2>
                 <p class="text-sm text-gray-600">{{ item.description }}</p>
               </div>
@@ -47,11 +48,11 @@
                 :disabled="form.amount <= currentPrice || form.amount > userBalance || remainingSeconds <= 0"
                 variant="default" class=" group">
 
-                Place Bid
+                {{$t('auction_bid.place')}}
                 <HandCoins />
               </ShadcnButton>
 
-              <p v-if="form.amount > userBalance" class="text-xs text-red-600">Insufficient balance</p>
+              <p v-if="form.amount > userBalance" class="text-xs text-red-600">{{$t('auction_bid.insufficient_balance')}}</p>
             </div>
 
           </div>
@@ -61,10 +62,10 @@
         <div>
 
           <ul>
-            <Label class="font-bold text-md">Active Users</Label>
+            <Label class="font-bold text-md">{{$t('auction_bid.active_users')}}</Label>
 
-            <li class="ml-5 list-disc" v-for="u in usersInAuctionNow">{{ u.username == user.username ? "You" : user.name
-              }}
+            <li class="ml-5 list-disc" v-for="u in usersInAuctionNow">{{ u.username == user.username ? $t('auction_bid.you') : user.name
+            }}
             </li>
           </ul>
 
@@ -83,17 +84,17 @@
         <Link :href="route('dashboard')" class="w-20">
         <ShadcnButton variant="outline" class="w-20 group">
 
-          Back
+          {{$t('auction_bid.back')}}
           <Undo2 class="group-hover:translate-x-1" />
         </ShadcnButton>
         </Link>
 
         <div class="mb-2 text-lg font-medium text-zinc-900" :class="{ 'text-red-600': remainingSeconds < 10 }">
-          Time Remaining: <span>{{ formattedTime }}</span>
+          {{$t('auction_bid.time_remaining')}} <span>{{ formattedTime }}</span>
         </div>
 
         <div v-if="remainingSeconds == 0 && youAreWinner">
-          You are the winner
+          {{$t('auction_bid.winner_msg')}}
         </div>
       </div>
     </CardFooter>
@@ -126,7 +127,7 @@ import defaultImage from "@vendor/images/items/default/item.png"
 
 
 const props = defineProps([
-  'auction', 'youAreWinner', 'now','availableBalance'
+  'auction', 'youAreWinner', 'now', 'availableBalance'
 ]);
 const page = usePage();
 const errors = computed(() => page.props.errors);
@@ -138,7 +139,7 @@ const currentPrice = ref(auction.current_price);
 const youAreWinner = ref(props.youAreWinner);
 const usersInAuctionNow = ref([]);
 
-console.log(props.availableBalance)
+
 
 const form = useForm({
   amount: auction.current_price + 1,
@@ -198,17 +199,17 @@ onMounted(() => {
 
 
 // For handle exist user from this page
-window.addEventListener('beforeunload', function () {
-  if (confirm("Are you sure you want leave this session?")) {
-    location.reload()
-  }
-})
-onBeforeUnmount(() => {
-  if (confirm("Are you sure you want leave this session?")) {
-    location.reload()
-  }
+// window.addEventListener('beforeunload', function () {
+//   if (confirm("Are you sure you want leave this session?")) {
+//     location.reload()
+//   }
+// })
+// onBeforeUnmount(() => {
+//   if (confirm("Are you sure you want leave this session?")) {
+//     location.reload()
+//   }
 
-})
+// })
 onUnmounted(() => {
 
   clearInterval(interval);
@@ -236,7 +237,7 @@ const auctionGroupChannel = Echo.join(`Auction.${auction.id}`)
 
     if (user.id != e.bid.user.id) {
       youAreWinner.value = false;
-      toast({ title: t('The current price is now ' + e.bid.amount + ' and increased by ' + e.bid.user.name) })
+      toast({ title: t('auction_bid.current_price', {"amount":e.bid.amount, "name": e.bid.user.name}) })
     } else {
       youAreWinner.value = true;
     }
@@ -272,8 +273,8 @@ const auctionGroupChannel = Echo.join(`Auction.${auction.id}`)
 
   }).listenForWhisper('ChangingAmountClientEvent', (e) => {
 
-    toast({ title: t(e.name + ' changed his/her offer'), description: t('The new amount now ' + e.amount + ', but he/she did not confirm it') })
-    console.log(e.name);
+    toast({ title: t("auction_bid.user_change_offer",{'name':e.name}), description: t('auction_bid.offer_new_amount',{"amount":e.amount}) })
+    
 
   })
   ;
@@ -296,7 +297,7 @@ function submitBid() {
   form.submit(bid(auction.id, {
 
     onSuccess: function () {
-      toast({ title: t('You add a bid successfully.') })
+      toast({ title: t('auction_bid.bid_added') })
     }
   }))
 }

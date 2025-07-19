@@ -1,13 +1,13 @@
 import Admin from './Admin'
+import Vendor from './Vendor'
 import Customer from './Customer'
 import Finance from './Finance'
-import Vendor from './Vendor'
 
 const Modules = {
     Admin,
+    Vendor,
     Customer,
     Finance,
-    Vendor,
 }
 
 export default Modules

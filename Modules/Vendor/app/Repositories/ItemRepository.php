@@ -124,4 +124,10 @@ class ItemRepository
     {
         return $this->ItemModel->search($query)->take(10)->get();
     }
+
+    public function changeStatus(int $id, string $status): void
+    {
+        $item = $this->findOrFail($id);
+        $item->update(['status' => $status]);
+    }
 }

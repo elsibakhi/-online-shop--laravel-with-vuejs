@@ -21,7 +21,7 @@ export function getColumns(t): ColumnDef<PurchaseTransaction>[] {
       return h(Button, {
           variant: 'ghost',
           onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
-      }, () => [t('Items'), h(ArrowUpDown, { class: 'ml-2 h-4 w-4' })])
+      }, () => [t('purchase.items'), h(ArrowUpDown, { class: 'ml-2 h-4 w-4' })])
   },
   cell: ({ row ,getValue }) => {
    
@@ -36,7 +36,7 @@ export function getColumns(t): ColumnDef<PurchaseTransaction>[] {
       return h(Button, {
           variant: 'ghost',
           onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
-      }, () => [t('Amount'), h(ArrowUpDown, { class: 'ml-2 h-4 w-4' })])
+      }, () => [t('purchase.amount'), h(ArrowUpDown, { class: 'ml-2 h-4 w-4' })])
   },
 //   filterFn: function useFilterNumbers(row, columnId, filterValue) {
 
@@ -57,7 +57,7 @@ export function getColumns(t): ColumnDef<PurchaseTransaction>[] {
       return h(Button, {
           variant: 'ghost',
           onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
-      }, () => [t('Currency'), h(ArrowUpDown, { class: 'ml-2 h-4 w-4' })])
+      }, () => [t('purchase.currency'), h(ArrowUpDown, { class: 'ml-2 h-4 w-4' })])
   },
   },
   {
@@ -67,7 +67,7 @@ export function getColumns(t): ColumnDef<PurchaseTransaction>[] {
       return h(Button, {
           variant: 'ghost',
           onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
-      }, () => [t('Status'), h(ArrowUpDown, { class: 'ml-2 h-4 w-4' })])
+      }, () => [t('purchase.status'), h(ArrowUpDown, { class: 'ml-2 h-4 w-4' })])
   },
   cell: ({ row,getValue }) => {
    
@@ -82,7 +82,7 @@ export function getColumns(t): ColumnDef<PurchaseTransaction>[] {
       return h(Button, {
           variant: 'ghost',
           onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
-      }, () => [t('Description'), h(ArrowUpDown, { class: 'ml-2 h-4 w-4' })])
+      }, () => [t('purchase.description'), h(ArrowUpDown, { class: 'ml-2 h-4 w-4' })])
   },
   },
   {
@@ -92,11 +92,11 @@ export function getColumns(t): ColumnDef<PurchaseTransaction>[] {
       return h(Button, {
           variant: 'ghost',
           onClick: () => column.toggleSorting(column.getIsSorted() === 'asc'),
-      }, () => [t('Date'), h(ArrowUpDown, { class: 'ml-2 h-4 w-4' })])
+      }, () => [t('purchase.date'), h(ArrowUpDown, { class: 'ml-2 h-4 w-4' })])
   },
   },
   {
-    header: () => t("Actions"),
+    header: () => t("purchase.actions"),
     id: 'actions',
     enableHiding: false,
     cell: ({ row }) => {

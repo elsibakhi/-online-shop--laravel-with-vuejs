@@ -51,13 +51,13 @@ const onDelete = (id:number) => useDelete('purchase-transactions.destroy',id,t,[
 
       <DropdownMenuItem>
        
-        <a   @click.prevent="onDelete(transaction.id)"  >{{$t('Delete')}}</a>
+        <a   @click.prevent="onDelete(transaction.id)"  >{{$t('purchase.delete')}}</a>
 
       </DropdownMenuItem>
       <DropdownMenuItem>
        
        
-        <a   :href="buy(transaction.id).url"  >{{$t('Show Invoice')}}</a>
+        <a   :href="buy(transaction.id).url"  >{{$t('purchase.show_invoice')}}</a>
       </DropdownMenuItem>
     </DropdownMenuContent>
   </DropdownMenu>

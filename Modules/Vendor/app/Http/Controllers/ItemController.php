@@ -137,4 +137,13 @@ class ItemController extends Controller
 
         return $response->toJson();
     }
+
+    public function changeStatus(Request $request, int $id)
+    {
+        $status = $request->input('status');
+        $this->itemService->changeStatus($id, $status);
+
+        return back()->with('message', 'Status changed successfully');
+
+    }
 }

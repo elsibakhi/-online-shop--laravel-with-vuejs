@@ -13,6 +13,10 @@ return [
                 'title' => __('Purchase Transactions'),
                 'url' => 'purchase-transactions.index',
             ],
+            [
+                'title' => __('My Balance'),
+                'url' => 'balance.index',
+            ],
 
         ],
     ],

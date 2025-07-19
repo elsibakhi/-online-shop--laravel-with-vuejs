@@ -3,7 +3,6 @@
 namespace Modules\Finance\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Modules\Finance\Actions\Bid\GetAuctionPageDataAction;
 use Modules\Finance\Actions\Bid\MakeBidOnAuctionAction;
@@ -30,22 +29,4 @@ class BidController extends Controller
 
         return redirect()->back()->with('success', 'Bid placed successfully.');
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        return view('finance::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id) {}
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id) {}
 }

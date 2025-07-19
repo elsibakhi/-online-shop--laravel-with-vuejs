@@ -1,9 +1,9 @@
-import VendorController from './VendorController'
 import ItemController from './ItemController'
+import VendorController from './VendorController'
 
 const Controllers = {
-    VendorController,
     ItemController,
+    VendorController,
 }
 
 export default Controllers

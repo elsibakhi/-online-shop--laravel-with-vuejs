@@ -12,8 +12,8 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Laravel\Scout\Searchable;
 use Modules\Admin\Models\SubCategory;
 use Modules\Admin\Models\Tag;
-use Modules\Customer\Models\Order;
 use Modules\Customer\Models\Rating;
+use Modules\Finance\Models\Order;
 
 class Item extends Model
 {

@@ -16,6 +16,20 @@
           "with": "Paying with",
           "your_balance_equal": "Your balance before is : {balance}",
           "cancel": "Cancel",
+          "items": "items",
+          "actions": "actions",
+          "date": "date",
+          "description": "description",
+          "status": "status",
+          "currency": "currency",
+          "amount": "amount",
+          "delete": "Delete",
+          "show_invoice": "Show Invoice",
+          "view_all": "View All Purchase Transactions",
+          "transactions": "Purchase Transactions",
+          "direct_bid": "direct",
+          "wallet_bid": "wallet",
+          "stripe_bid": "Buy By Stripe",
           "your_balance_now": "Your balance now is : {balance}"
         },
       
@@ -34,26 +48,42 @@
           "download": "Download",
           "thank_you": "Thank you for your purchase!"
         },
-        "Items":"Items",
-        "Amount":"Amount",
-        "Currency":"Currency",
-        "Status":"Status",
-        "Description":"Description",
-        "Date":"Date",
-        "Purchase Transactions":"Purchase Transactions",
-        "Show Invoice":"Show Invoice",
-        "":"",
-        "":"",
-        "":"",
-        "":"",
-        "":"",
-        "":"",
-        "":"",
-        "":"",
-        "":"",
-        "":"",
-        "":"",
-        "":""
+        "auction_bid":{
+          "current_price":"The current price is now {amount} and increased by {name}",
+          "user_change_offer":"{name} changed his/her offer",
+          "offer_new_amount":"The new amount now {amount}, but he/she did not confirm it",
+          "bid_added":"You add a bid successfully.",
+          "active_users":"Active Users",
+          "insufficient_balance":"Insufficient balance",
+          "place":"Place Bid",
+          "current_price_label":"Current Price:",
+          "auction":"Auction:",
+          "you":"You",
+          "back":"Back",
+          "time_remaining":"Time Remaining:",
+          "winner_msg":"You are the winner"
+          
+        },
+        "wallet": {
+          "title": "Wallet",
+          "balance": "Balance",
+          "transactions": "Transactions",
+          "deposit": "Deposit",
+          "withdraw": "Withdraw",
+          
+          "transaction_history": "Transaction History",
+          "add_funds": "Add Funds",
+          "withdraw_funds": "Withdraw Funds",
+          "amount": "Amount",
+          "description": "Description",
+          "submit": "Submit",
+          "cancel": "Cancel",
+          "success_message": "Transaction completed successfully.",
+          "error_message": "An error occurred. Please try again.",
+          "stripe_page": "Go to Stripe Page",
+          "no_transactions": "No transactions found."
+        }
+      
       
       
  

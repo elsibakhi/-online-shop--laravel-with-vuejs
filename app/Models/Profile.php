@@ -13,7 +13,10 @@ class Profile extends Model
         'avatar',
         'locale',
         'timezone',
+        'countryCode',
+        'user_id',
         'phone',
-        'location_id',
+        'lat',
+        'lng',
     ];
 }
