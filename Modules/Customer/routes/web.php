@@ -32,7 +32,8 @@ Route::delete('/cart/{item}', [CartController::class, 'remove'])->name('cart.rem
 Route::delete('/cart', [CartController::class, 'empty'])->name('cart.empty');
 
 Route::middleware(['guest'])->group(function (): void {
-    Route::get('/customer/load', [CustomerController::class, 'load'])->name('customer.load');
     Route::get('/', [CustomerController::class, 'index']);
-
+    
 });
+
+Route::get('/customer/load', [CustomerController::class, 'load'])->name('customer.load');

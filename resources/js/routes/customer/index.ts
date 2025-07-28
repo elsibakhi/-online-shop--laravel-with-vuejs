@@ -2,7 +2,7 @@ import { queryParams, type QueryParams } from './../../wayfinder'
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::load
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:27
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:32
 * @route '/customer/load'
 */
 export const load = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -20,7 +20,7 @@ load.definition = {
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::load
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:27
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:32
 * @route '/customer/load'
 */
 load.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -29,7 +29,7 @@ load.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::load
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:27
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:32
 * @route '/customer/load'
 */
 load.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -42,7 +42,7 @@ load.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::load
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:27
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:32
 * @route '/customer/load'
 */
 load.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {

@@ -17,6 +17,7 @@ class SubCategoryService
 
     public function store(array $data): SubCategory
     {
+        $data['slug'] = str($data['name'])->slug();
         return $this->subCategoryRepository->addOne($data);
     }
 

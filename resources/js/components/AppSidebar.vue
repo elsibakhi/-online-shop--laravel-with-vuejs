@@ -52,23 +52,7 @@ const data = {
     email: page.props.auth.user.email,
     // avatar: '/avatars/shadcn.jpg',
   },
-  teams: [
-    {
-      name: 'Acme Inc',
-      logo: GalleryVerticalEnd,
-      plan: 'Enterprise',
-    },
-    {
-      name: 'Acme Corp.',
-      logo: AudioWaveform,
-      plan: 'Startup',
-    },
-    {
-      name: 'Evil Corp.',
-      logo: Command,
-      plan: 'Free',
-    },
-  ],
+
   navMain: sidebarStore.routes,
 
  
@@ -78,7 +62,7 @@ const data = {
 <template>
   <Sidebar v-bind="props">
     <SidebarHeader>
-      <TeamSwitcher :teams="data.teams" />
+      <TeamSwitcher  />
     </SidebarHeader>
     <SidebarContent>
       <NavMain :items="data.navMain" />

@@ -38,6 +38,7 @@ import { ref } from "vue";
 import NotificationBar from './notifications/Bar.vue';
 import { useNotificationsStore } from '@/Stores/notifications';
 import { edit } from '@/actions/App/Http/Controllers/ProfileController';
+import { index } from '@/routes/balance';
 
 const visible = ref(false);
 const NotificationsStore = useNotificationsStore();
@@ -98,27 +99,9 @@ const { isMobile } = useSidebar()
           align="end"
           :side-offset="4"
         >
-          <DropdownMenuLabel class="p-0 font-normal">
-            <div class="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-              <Avatar class="w-8 h-8 rounded-lg">
-                <AvatarImage src="user.avatar" :alt="user.name" />
-                <AvatarFallback class="rounded-lg">
-                 {{nameInitials}}
-                </AvatarFallback>
-              </Avatar>
-              <div class="grid flex-1 text-sm leading-tight text-left">
-                <span class="font-semibold truncate">{{ user.name }}</span>
-                <span class="text-xs truncate">{{ user.email }}</span>
-              </div>
-            </div>
-          </DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuGroup>
-            <DropdownMenuItem>
-              <Sparkles />
-              Upgrade to Pro
-            </DropdownMenuItem>
-          </DropdownMenuGroup>
+   
+       
+       
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <Link :href="edit().url"> 
@@ -128,28 +111,37 @@ const { isMobile } = useSidebar()
                 
               </DropdownMenuItem>
             </Link> 
-            <DropdownMenuItem>
+          
+              <Link :href="index().url"> 
+            <DropdownMenuItem >
               <CreditCard />
               Billing
-            </DropdownMenuItem>
+                
+              </DropdownMenuItem>
+            </Link> 
+            
             <DropdownMenuItem @click="visible=!visible" >
-              <OverlayBadge :value="unreadCount" size="small" >
+              
+            
                 <Bell />
-</OverlayBadge>
+              
+                  Notifications
              
-              Notifications
+                
+             
+              
             </DropdownMenuItem>
 
  
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
-          <DropdownMenuItem >
-            <LogOut />
-            <Link href="/logout" method="post"  >
+          <Link href="/logout" method="post"  >
+            <DropdownMenuItem >
+              <LogOut />
               
               Log out
+            </DropdownMenuItem>
             </Link>
-          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </SidebarMenuItem>

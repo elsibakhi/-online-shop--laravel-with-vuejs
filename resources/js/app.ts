@@ -13,6 +13,7 @@ import PrimeVue from 'primevue/config';
 import Aura from '@primeuix/themes/aura';
 import ToastService from 'primevue/toastservice';
 import { myGlobalProperties } from '@/Plugins/myGlobalProperties';
+import 'primeicons/primeicons.css'
 
 
 

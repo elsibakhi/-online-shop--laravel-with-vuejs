@@ -13,11 +13,15 @@ import { provide } from 'vue';
 
 const {t}=useI18n();
 
-defineProps({ items: Array<Item> })
+const props =defineProps({ items: Array<Item>, filters: Object });
   
 const childCoponentsProps =ref({
   DataView:{
     fetchUrl:"customer.load",
+    fetchParams: {
+      filters: props.filters
+      ,
+    },
     CardBtnLabel:t('View'),
   },
 })

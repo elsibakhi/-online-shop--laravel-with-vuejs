@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use App\Helpers\SideBarLoader;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
+use Modules\Admin\Models\Category;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -31,17 +32,33 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
 
-        return [
-            ...parent::share($request),
-            'auth' => [
+       $shared =[
+        ...parent::share($request),
+     
+        'csrf_token' => csrf_token(),
+        'message' => session()->get('message'),
+        
+        
+    ];
+
+       if($request->user()) {
+            $shared['auth'] = [
                 'user' => $request->user(),
-                'notifications' => $request->user()?->notifications,
-                'unread_notifications_count' => $request->user()?->unreadNotifications()->count(),
-            ],
-            'csrf_token' => csrf_token(),
-            'message' => session()->get('message'),
-            'sidebar' => (new SideBarLoader)(),
-            'customerConfig' => config('customer'),
-        ];
+                'notifications' => $request->user()->notifications,
+                'unread_notifications_count' => $request->user()->unreadNotifications()->count(),
+            ];
+            $shared['sidebar'] = (new SideBarLoader)();
+            $shared['customerConfig'] = config('customer');
+
+        } else {
+            $shared['auth'] = [
+                'user' => null,
+                'notifications' => [],
+                'unread_notifications_count' => 0,
+            ];
+            $shared['categories'] = Category::with('subcategories')->get();
+        }
+
+        return $shared;
     }
 }

@@ -3,103 +3,107 @@
 namespace Modules\Admin\Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 use Modules\Admin\Models\Category;
 
 class CategorySeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        //
         Category::create(['name' => 'Electronics'])
-            ->subCategories()->createMany([
-                ['name' => 'Mobile Phones'],
-                ['name' => 'Laptops & Computers'],
-                ['name' => 'Tablets'],
-                ['name' => 'Accessories'],
-                ['name' => 'Smartwatches & Wearables'],
-                ['name' => 'Cameras & Photography'],
-                ['name' => 'Home Appliances'],
-            ]);
+            ->subCategories()->createMany($this->withSlugs([
+                'Mobile Phones',
+                'Laptops & Computers',
+                'Tablets',
+                'Accessories',
+                'Smartwatches & Wearables',
+                'Cameras & Photography',
+                'Home Appliances',
+            ]));
 
         Category::create(['name' => 'Fashion'])
-            ->subCategories()->createMany([
-                ['name' => 'Men’s Clothing'],
-                ['name' => 'Women’s Clothing'],
-                ['name' => 'Shoes'],
-                ['name' => 'Bags & Accessories'],
-                ['name' => 'Watches & Jewelry'],
-            ]);
+            ->subCategories()->createMany($this->withSlugs([
+                'Men’s Clothing',
+                'Women’s Clothing',
+                'Shoes',
+                'Bags & Accessories',
+                'Watches & Jewelry',
+            ]));
 
         Category::create(['name' => 'Beauty & Personal Care'])
-            ->subCategories()->createMany([
-                ['name' => 'Skincare'],
-                ['name' => 'Makeup'],
-                ['name' => 'Hair Care'],
-                ['name' => 'Perfumes & Fragrances'],
-                ['name' => 'Personal Hygiene'],
-            ]);
+            ->subCategories()->createMany($this->withSlugs([
+                'Skincare',
+                'Makeup',
+                'Hair Care',
+                'Perfumes & Fragrances',
+                'Personal Hygiene',
+            ]));
 
         Category::create(['name' => 'Home & Furniture'])
-            ->subCategories()->createMany([
-                ['name' => 'Living Room Furniture'],
-                ['name' => 'Bedroom Furniture'],
-                ['name' => 'Kitchen & Dining'],
-                ['name' => 'Home Decor'],
-                ['name' => 'Cleaning & Organization'],
-            ]);
+            ->subCategories()->createMany($this->withSlugs([
+                'Living Room Furniture',
+                'Bedroom Furniture',
+                'Kitchen & Dining',
+                'Home Decor',
+                'Cleaning & Organization',
+            ]));
 
         Category::create(['name' => 'Sports & Outdoor'])
-            ->subCategories()->createMany([
-                ['name' => 'Exercise Equipment'],
-                ['name' => 'Sportswear & Shoes'],
-                ['name' => 'Camping & Hiking Gear'],
-                ['name' => 'Bicycles & Accessories'],
-                ['name' => 'Swimming & Water Sports'],
-            ]);
+            ->subCategories()->createMany($this->withSlugs([
+                'Exercise Equipment',
+                'Sportswear & Shoes',
+                'Camping & Hiking Gear',
+                'Bicycles & Accessories',
+                'Swimming & Water Sports',
+            ]));
 
         Category::create(['name' => 'Toys & Kids'])
-            ->subCategories()->createMany([
-                ['name' => 'Baby Clothing & Accessories'],
-                ['name' => 'Educational Toys'],
-                ['name' => 'Action Figures & Dolls'],
-                ['name' => 'Puzzles & Board Games'],
-                ['name' => 'School Supplies'],
-            ]);
+            ->subCategories()->createMany($this->withSlugs([
+                'Baby Clothing & Accessories',
+                'Educational Toys',
+                'Action Figures & Dolls',
+                'Puzzles & Board Games',
+                'School Supplies',
+            ]));
 
         Category::create(['name' => 'Automotive & Tools'])
-            ->subCategories()->createMany([
-                ['name' => 'Car Accessories'],
-                ['name' => 'Tools & Hardware'],
-                ['name' => 'Motorcycle Gear'],
-                ['name' => 'Vehicle Electronics'],
-            ]);
+            ->subCategories()->createMany($this->withSlugs([
+                'Car Accessories',
+                'Tools & Hardware',
+                'Motorcycle Gear',
+                'Vehicle Electronics',
+            ]));
 
         Category::create(['name' => 'Grocery & Food'])
-            ->subCategories()->createMany([
-                ['name' => 'Fresh Produce'],
-                ['name' => 'Packaged Foods'],
-                ['name' => 'Beverages'],
-                ['name' => 'Health & Wellness'],
-            ]);
+            ->subCategories()->createMany($this->withSlugs([
+                'Fresh Produce',
+                'Packaged Foods',
+                'Beverages',
+                'Health & Wellness',
+            ]));
 
         Category::create(['name' => 'Books & Stationery'])
-            ->subCategories()->createMany([
-                ['name' => 'Fiction & Non-Fiction Books'],
-                ['name' => 'Academic & Professional Books'],
-                ['name' => 'Notebooks & Planners'],
-                ['name' => 'Office Supplies'],
-            ]);
+            ->subCategories()->createMany($this->withSlugs([
+                'Fiction & Non-Fiction Books',
+                'Academic & Professional Books',
+                'Notebooks & Planners',
+                'Office Supplies',
+            ]));
 
         Category::create(['name' => 'Gaming & Entertainment'])
-            ->subCategories()->createMany([
-                ['name' => 'Gaming Consoles'],
-                ['name' => 'Gaming Accessories'],
-                ['name' => 'Video Games'],
-                ['name' => 'Board Games & Card Games'],
-            ]);
+            ->subCategories()->createMany($this->withSlugs([
+                'Gaming Consoles',
+                'Gaming Accessories',
+                'Video Games',
+                'Board Games & Card Games',
+            ]));
+    }
 
+    private function withSlugs(array $names): array
+    {
+        return array_map(fn($name) => [
+            'name' => $name,
+            'slug' => Str::slug($name),
+        ], $names);
     }
 }

@@ -76,7 +76,8 @@ telescope.head = (args?: { view?: string | number } | [view: string | number ] |
 import { queryParams, type QueryParams } from './../wayfinder'
 
 /**
-* @see routes/web.php:18
+* @see \Modules\Customer\Http\Controllers\CustomerController::dashboard
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:41
 * @route '/dashboard'
 */
 export const dashboard = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -93,7 +94,8 @@ dashboard.definition = {
 }
 
 /**
-* @see routes/web.php:18
+* @see \Modules\Customer\Http\Controllers\CustomerController::dashboard
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:41
 * @route '/dashboard'
 */
 dashboard.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -101,7 +103,8 @@ dashboard.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) =>
 }
 
 /**
-* @see routes/web.php:18
+* @see \Modules\Customer\Http\Controllers\CustomerController::dashboard
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:41
 * @route '/dashboard'
 */
 dashboard.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -113,7 +116,8 @@ dashboard.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 })
 
 /**
-* @see routes/web.php:18
+* @see \Modules\Customer\Http\Controllers\CustomerController::dashboard
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:41
 * @route '/dashboard'
 */
 dashboard.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -125,7 +129,8 @@ dashboard.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): 
 })
 
 /**
-* @see routes/web.php:19
+* @see \Modules\Customer\Http\Controllers\CustomerController::home
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:41
 * @route '/home'
 */
 export const home = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -142,7 +147,8 @@ home.definition = {
 }
 
 /**
-* @see routes/web.php:19
+* @see \Modules\Customer\Http\Controllers\CustomerController::home
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:41
 * @route '/home'
 */
 home.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -150,7 +156,8 @@ home.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 }
 
 /**
-* @see routes/web.php:19
+* @see \Modules\Customer\Http\Controllers\CustomerController::home
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:41
 * @route '/home'
 */
 home.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -162,7 +169,8 @@ home.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 })
 
 /**
-* @see routes/web.php:19
+* @see \Modules\Customer\Http\Controllers\CustomerController::home
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:41
 * @route '/home'
 */
 home.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {

@@ -1,27 +1,58 @@
-<script setup lang="ts">
-import ApplicationLogo from '@/components/ApplicationLogo.vue';
-import { Link } from '@inertiajs/vue3';
-import { Store } from 'lucide-vue-next';
-import Cart from '@customer/js/components/Cart/drawer.vue';
-</script>
-
-<template >
-    <div
-        class="flex flex-col items-center w-full min-h-screen pt-6 bg-gray-100 sm:justify-center sm:pt-0"
-    >
-        <div>
-            <Link href="/">
-               
-                <Store class="w-20 h-20 "  />
-            </Link>
-        </div>
-
-        <div
-            class="px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:rounded-lg"
-        >
-            <slot />
-        </div>
-   
-        <Cart />
+<template>
+    <div>
+      <Navbar />
+      <main class="p-4">
+        <slot />
+      </main>
     </div>
-</template>
+    <Toaster />
+      <Confirm />
+      <Cart />
+  </template>
+  
+  <script setup lang="ts">
+import Navbar from '@/components/layouts/guest/Navbar.vue'
+import { toast, Toaster } from '@/components/ui/toast'
+import { computed, watch  } from 'vue';
+import Confirm from '@/components/actions/Confirm.vue';
+import Cart from '@customer/js/components/Cart/drawer.vue';
+import { usePage } from '@inertiajs/vue3';
+
+const page = usePage()
+// Ensure message is always a string or undefined
+const message = computed(() => page.props.message as string | undefined)
+const errors = computed(() => page.props.errors );
+
+watch(
+  message, 
+  (newMessage) => {
+      if(newMessage){
+        toast({ title: newMessage })
+
+      }
+    
+  },
+  { immediate: true } // Show toast if message exists on load
+)
+watch(
+  errors, 
+  (newErrors) => {
+      if(newErrors){
+        for (const key in newErrors) {
+    if (newErrors[key]) {
+      
+      toast({
+        title: newErrors[key],
+       
+      });
+    }
+  }
+
+      }
+    
+  },
+  { immediate: true } // Show toast if message exists on load
+)
+
+
+  </script>

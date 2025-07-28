@@ -97,16 +97,36 @@ class ItemRepository
     /**
      * Get items for guest customer in landing page grouped by category name
      */
-    public function getItemsForGuestCustomerInLanding(): Collection
+    public function getItemsForGuestCustomerInLanding($subCategorySlug = null,$searchQuery = null): Collection
     {
 
+        // if($searchQuery){
+        //     return $this->ItemModel
+        //         ->select('items.*')
+        //         ->where('status', 'available')
+        //         ->addSelect(['categories.name as category_name', 'categories.id as category_id'])
+        //         ->join('sub_categories', 'sub_categories.id', '=', 'items.sub_category_id')
+        //         ->join('categories', 'categories.id', '=', 'sub_categories.category_id')
+        //         ->where('items.title', 'like', '%' . $searchQuery . '%')
+        //         ->orWhere('items.description', 'like', '%' . $searchQuery . '%')
+        //         ->orderBy('category_name')
+        //         ->get();
+        // }
         return $this->ItemModel
+       
             ->select('items.*')
             ->where('status', 'available')
             ->addSelect(['categories.name as category_name', 'categories.id as category_id'])
             ->join('sub_categories', 'sub_categories.id', '=', 'items.sub_category_id')
             ->join('categories', 'categories.id', '=', 'sub_categories.category_id')
             ->orderBy('category_name')
+            ->when($subCategorySlug, function ($query) use ($subCategorySlug) {
+                $query->where('sub_categories.slug', $subCategorySlug);
+            })
+            ->when($searchQuery, function ($query) use ($searchQuery) {
+                $query->where('items.title', 'like', '%' . $searchQuery . '%')
+                ->orWhere('items.description', 'like', '%' . $searchQuery . '%');
+            })
             ->get();
     }
 

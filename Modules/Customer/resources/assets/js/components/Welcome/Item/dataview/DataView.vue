@@ -16,12 +16,12 @@ import Chip from 'primevue/chip';
 
 
 
-const props = defineProps(["fetchUrl","CardBtnLabel"]);
+const props = defineProps(["fetchUrl","CardBtnLabel","fetchParams"]);
 
 
 
 const loading = ref(true);
-const groups = ref([1]);
+const groups = ref([]);
 const products = ref([1]);
 
 
@@ -30,8 +30,23 @@ const fetchData = async function(){
 try{
 
     
-
-const response = await fetch(route(props.fetchUrl) );
+const fRoute =ref(route(props.fetchUrl));
+if(props.fetchParams){
+    Object.keys(props.fetchParams.filters).forEach(key => {
+    if(props.fetchParams.filters[key]!== null && props.fetchParams.filters[key] !== undefined){
+        fRoute.value = fRoute.value + `?${key}=${props.fetchParams.filters[key]}`;
+       
+    }
+    });
+} 
+console.log(fRoute.value);   
+const response = await fetch(fRoute.value, {
+    method: 'GET',
+    headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        'Accept': 'application/json',
+    },
+});
 const jsonRes = await response.json();
 groups.value= jsonRes;
 
@@ -95,6 +110,10 @@ switch (status) {
                         </template>
                     </SelectButton>
                 </div>
+
+                <div v-if="groups.length===0" class="flex items-center justify-center w-full h-64">
+                    <span class="text-lg font-semibold text-surface-500 dark:text-surface-400">No Items Found</span>    
+                </div>
         <DataView v-for="(group,name) in groups" :value="group" :layout="layout">
             <template #header>
                 <div class="flex justify-start px-4 py-2">
@@ -103,6 +122,7 @@ switch (status) {
                 </div>
             </template>
             
+           
             <template #list="slotProps" >
             
                
@@ -110,7 +130,7 @@ switch (status) {
                     <div v-for="(item, index) in slotProps.items" :key="index" >
                         <div class="flex flex-col gap-4 p-6 sm:flex-row sm:items-center" :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
                             <div class="relative ">
-                                <img class="block w-full mx-auto rounded xl:block" :src="item.hasOwnProperty('image_path')?('storage/'+item.image_path):defaultImage" :alt="item.title" />
+                                <img class="block w-1/3 mx-auto rounded xl:block" :src="item.hasOwnProperty('image_path')?('storage/'+item.image_path):defaultImage" :alt="item.title" />
                                  <div class="absolute dark:bg-black/70 rounded-border" style="left: 4px; top: 4px">
                                     <Tag :value="$ucfirst($t(item.status))" :severity="getSeverity(item.status)"></Tag>
                                 </div>
@@ -155,7 +175,7 @@ switch (status) {
                             <div class="p-1 bg-surface-100" style="border-radius: 30px">
                                         <div class="flex items-center justify-center gap-2 px-2 py-1 bg-surface-0" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
                                             <span v-if="item.rating>0" class="text-sm font-medium text-surface-900">{{ item.rating.toPrecision(2) }}/5</span>
-                                            <span v-else class="text-sm font-medium text-surface-900">Not Rated</span>
+                                            <span v-else class="text-sm font-medium  text-surface-900">Not Rated</span>
                                             <Star class="text-gray-400" :class="{'text-orange-400':item.rating>0}" :size="20"  />
                                         </div>
                                     </div>

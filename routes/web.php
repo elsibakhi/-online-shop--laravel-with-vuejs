@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Modules\Customer\Http\Controllers\CustomerController;
 
 // Route::get('/', fn() => Inertia::render('Welcome', [
 //     'canLogin' => Route::has('login'),
@@ -15,10 +16,12 @@ use Inertia\Inertia;
 
 // ]));
 
-Route::get('/dashboard', fn () => Inertia::render('Dashboard'))->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/home', fn () => Inertia::render('Dashboard'))->middleware(['auth', 'verified'])->name('home');
 
-Route::middleware('auth')->group(function (): void {
+
+Route::middleware(['auth', 'verified'])->group(function (): void {
+    Route::get('/dashboard', [CustomerController::class, 'authIndex'])->name('dashboard');
+    Route::get('/home', [CustomerController::class, 'authIndex'])->name('home');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
