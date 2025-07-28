@@ -101,7 +101,7 @@ class CategorySeeder extends Seeder
 
     private function withSlugs(array $names): array
     {
-        return array_map(fn($name) => [
+        return array_map(fn ($name) => [
             'name' => $name,
             'slug' => Str::slug($name),
         ], $names);

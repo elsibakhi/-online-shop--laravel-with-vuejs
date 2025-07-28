@@ -224,7 +224,7 @@ export const index = {
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::store
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:58
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:57
 * @route '/api/v1/customer'
 */
 export const store = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -242,7 +242,7 @@ store.definition = {
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::store
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:58
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:57
 * @route '/api/v1/customer'
 */
 store.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -251,7 +251,7 @@ store.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::store
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:58
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:57
 * @route '/api/v1/customer'
 */
 store.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -264,7 +264,7 @@ store.post = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::show
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:63
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:62
 * @route '/api/v1/customer/{customer}'
 */
 export const show = (args: { customer: string | number } | [customer: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -282,7 +282,7 @@ show.definition = {
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::show
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:63
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:62
 * @route '/api/v1/customer/{customer}'
 */
 show.url = (args: { customer: string | number } | [customer: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -307,7 +307,7 @@ show.url = (args: { customer: string | number } | [customer: string | number ] |
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::show
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:63
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:62
 * @route '/api/v1/customer/{customer}'
 */
 show.get = (args: { customer: string | number } | [customer: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -320,7 +320,7 @@ show.get = (args: { customer: string | number } | [customer: string | number ] |
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::show
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:63
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:62
 * @route '/api/v1/customer/{customer}'
 */
 show.head = (args: { customer: string | number } | [customer: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -333,7 +333,7 @@ show.head = (args: { customer: string | number } | [customer: string | number ] 
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::update
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:79
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:78
 * @route '/api/v1/customer/{customer}'
 */
 export const update = (args: { customer: string | number } | [customer: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -351,7 +351,7 @@ update.definition = {
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::update
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:79
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:78
 * @route '/api/v1/customer/{customer}'
 */
 update.url = (args: { customer: string | number } | [customer: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -376,7 +376,7 @@ update.url = (args: { customer: string | number } | [customer: string | number ]
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::update
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:79
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:78
 * @route '/api/v1/customer/{customer}'
 */
 update.put = (args: { customer: string | number } | [customer: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -389,7 +389,7 @@ update.put = (args: { customer: string | number } | [customer: string | number ]
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::update
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:79
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:78
 * @route '/api/v1/customer/{customer}'
 */
 update.patch = (args: { customer: string | number } | [customer: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -402,7 +402,7 @@ update.patch = (args: { customer: string | number } | [customer: string | number
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::destroy
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:84
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:83
 * @route '/api/v1/customer/{customer}'
 */
 export const destroy = (args: { customer: string | number } | [customer: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -420,7 +420,7 @@ destroy.definition = {
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::destroy
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:84
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:83
 * @route '/api/v1/customer/{customer}'
 */
 destroy.url = (args: { customer: string | number } | [customer: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -445,7 +445,7 @@ destroy.url = (args: { customer: string | number } | [customer: string | number 
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::destroy
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:84
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:83
 * @route '/api/v1/customer/{customer}'
 */
 destroy.delete = (args: { customer: string | number } | [customer: string | number ] | string | number, options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -458,7 +458,7 @@ destroy.delete = (args: { customer: string | number } | [customer: string | numb
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::load
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:32
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:33
 * @route '/customer/load'
 */
 export const load = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -476,7 +476,7 @@ load.definition = {
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::load
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:32
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:33
 * @route '/customer/load'
 */
 load.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
@@ -485,7 +485,7 @@ load.url = (options?: { query?: QueryParams, mergeQuery?: QueryParams }) => {
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::load
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:32
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:33
 * @route '/customer/load'
 */
 load.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
@@ -498,7 +498,7 @@ load.get = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {
 
 /**
 * @see \Modules\Customer\Http\Controllers\CustomerController::load
-* @see Modules/Customer/app/Http/Controllers/CustomerController.php:32
+* @see Modules/Customer/app/Http/Controllers/CustomerController.php:33
 * @route '/customer/load'
 */
 load.head = (options?: { query?: QueryParams, mergeQuery?: QueryParams }): {

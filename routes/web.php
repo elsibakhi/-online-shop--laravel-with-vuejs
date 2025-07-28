@@ -16,8 +16,6 @@ use Modules\Customer\Http\Controllers\CustomerController;
 
 // ]));
 
-
-
 Route::middleware(['auth', 'verified'])->group(function (): void {
     Route::get('/dashboard', [CustomerController::class, 'authIndex'])->name('dashboard');
     Route::get('/home', [CustomerController::class, 'authIndex'])->name('home');

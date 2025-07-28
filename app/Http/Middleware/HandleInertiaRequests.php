@@ -32,16 +32,15 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
 
-       $shared =[
-        ...parent::share($request),
-     
-        'csrf_token' => csrf_token(),
-        'message' => session()->get('message'),
-        
-        
-    ];
+        $shared = [
+            ...parent::share($request),
 
-       if($request->user()) {
+            'csrf_token' => csrf_token(),
+            'message' => session()->get('message'),
+
+        ];
+
+        if ($request->user()) {
             $shared['auth'] = [
                 'user' => $request->user(),
                 'notifications' => $request->user()->notifications,

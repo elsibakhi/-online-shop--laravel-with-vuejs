@@ -97,7 +97,7 @@ class ItemRepository
     /**
      * Get items for guest customer in landing page grouped by category name
      */
-    public function getItemsForGuestCustomerInLanding($subCategorySlug = null,$searchQuery = null): Collection
+    public function getItemsForGuestCustomerInLanding($subCategorySlug = null, $searchQuery = null): Collection
     {
 
         // if($searchQuery){
@@ -113,7 +113,7 @@ class ItemRepository
         //         ->get();
         // }
         return $this->ItemModel
-       
+
             ->select('items.*')
             ->where('status', 'available')
             ->addSelect(['categories.name as category_name', 'categories.id as category_id'])
@@ -124,8 +124,8 @@ class ItemRepository
                 $query->where('sub_categories.slug', $subCategorySlug);
             })
             ->when($searchQuery, function ($query) use ($searchQuery) {
-                $query->where('items.title', 'like', '%' . $searchQuery . '%')
-                ->orWhere('items.description', 'like', '%' . $searchQuery . '%');
+                $query->where('items.title', 'like', '%'.$searchQuery.'%')
+                    ->orWhere('items.description', 'like', '%'.$searchQuery.'%');
             })
             ->get();
     }
